@@ -24,6 +24,8 @@ Bundle "tpope/vim-repeat"
 Bundle "tpope/vim-surround"
 Bundle "sjl/gundo.vim"
 Bundle "wincent/Command-T"
+Bundle "hail2u/vim-css3-syntax"
+Bundle "skammer/vim-css-color"
 
 filetype plugin indent on
 
