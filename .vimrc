@@ -199,8 +199,13 @@ nnoremap cp Pjdd
 "moving tabages
 nmap <Tab> gT
 nmap \ gt
-nnoremap <silent> <expr> <C-Left> ':exec "tabm ' . string(tabpagenr() - 2 < 0 ? tabpagenr("$") : tabpagenr() - 2) . '"<CR>'
-nnoremap <silent> <expr> <C-Right> ':exec "tabm ' . string(tabpagenr()) . '"<CR>'
+if has('mac')
+    nnoremap <silent> <expr> <D-Left> ':exec "tabm ' . string(tabpagenr() - 2 < 0 ? tabpagenr("$") : tabpagenr() - 2) . '"<CR>'
+    nnoremap <silent> <expr> <D-Right> ':exec "tabm ' . string(tabpagenr()) . '"<CR>'
+else
+    nnoremap <silent> <expr> <C-Left> ':exec "tabm ' . string(tabpagenr() - 2 < 0 ? tabpagenr("$") : tabpagenr() - 2) . '"<CR>'
+    nnoremap <silent> <expr> <C-Right> ':exec "tabm ' . string(tabpagenr()) . '"<CR>'
+endif
 
 "switching between alternative buffers
 "nnoremap \ :b#<CR>
