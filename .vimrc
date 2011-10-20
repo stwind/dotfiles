@@ -15,6 +15,7 @@ Bundle "Shougo/neocomplcache"
 Bundle "scrooloose/nerdtree"
 Bundle "scrooloose/nerdcommenter"
 Bundle "Shougo/unite.vim"
+Bundle "h1mesuke/unite-outline"
 Bundle "tsaleh/vim-align"
 Bundle "oscarh/vimerl"
 Bundle "pangloss/vim-javascript"
@@ -26,6 +27,10 @@ Bundle "sjl/gundo.vim"
 Bundle "wincent/Command-T"
 Bundle "hail2u/vim-css3-syntax"
 Bundle "skammer/vim-css-color"
+Bundle "rstacruz/sparkup"
+Bundle "bkad/CamelCaseMotion"
+Bundle "vim-scripts/argtextobj.vim"
+Bundle "michaeljsmith/vim-indent-object"
 
 filetype plugin indent on
 
@@ -486,6 +491,12 @@ call unite#set_buffer_name_option('files', 'smartcase', '0')
 "--------------------------------------------------
 nnoremap <leader>/ :M/
 nnoremap <leader>? :M?
+
+"--------------------------------------------------
+"eregex.vim
+"--------------------------------------------------
+"let g:sparkup = '~/.vim/bundle/sparkup/vim/ftplugin/html/sparkup.py'
+"autocmd FileType html,xhtml,xml,xaml source ~/.vim/bundle/sparkup/vim/ftplugin/html/sparkup.vim
 
 "--------------------------------------------------
 "fugitive.vim
