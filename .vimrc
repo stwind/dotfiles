@@ -29,10 +29,10 @@ Bundle "hail2u/vim-css3-syntax"
 Bundle "skammer/vim-css-color"
 Bundle "rstacruz/sparkup"
 Bundle "bkad/CamelCaseMotion"
-Bundle "vim-scripts/argtextobj.vim"
+"Bundle "vim-scripts/argtextobj.vim"
 Bundle "michaeljsmith/vim-indent-object"
 
-filetype plugin indent on
+filetype indent plugin on
 
 let s:iswin = has("win32") || has("wind64")
 
@@ -96,7 +96,7 @@ endif
 
 if has("gui_macvim")
     let macvim_skip_cmd_opt_movement=1
-    set transparency=3
+    set transparency=0
 endif
 
 if has("gui_running")
@@ -493,7 +493,7 @@ nnoremap <leader>/ :M/
 nnoremap <leader>? :M?
 
 "--------------------------------------------------
-"eregex.vim
+"sparkup
 "--------------------------------------------------
 "let g:sparkup = '~/.vim/bundle/sparkup/vim/ftplugin/html/sparkup.py'
 "autocmd FileType html,xhtml,xml,xaml source ~/.vim/bundle/sparkup/vim/ftplugin/html/sparkup.vim
@@ -507,6 +507,7 @@ nnoremap <Leader>gs :Gstatus<CR>
 "Comman-T
 "--------------------------------------------------
 nnoremap <Leader>t :CommandT<CR>
+nnoremap <D-t> :CommandT<CR>
 
 "--------------------------------------------------
 "surround.vim
@@ -559,8 +560,8 @@ let g:Align_xstrlen=2
 "language
 set langmenu=en_US
 let $LANG='en_US'
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
+"source $VIMRUNTIME/delmenu.vim
+"source $VIMRUNTIME/menu.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 "=> tabline settings
