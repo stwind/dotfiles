@@ -10,6 +10,11 @@ alias v="vim"
 alias m="mvim"
 alias g="git"
 
+alias http="python -m SimpleHTTPServer"
+
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
 ##
 # Your previous /Users/stwind/.bash_profile file was backed up as /Users/stwind/.bash_profile.macports-saved_2011-09-30_at_01:24:23
 ##
