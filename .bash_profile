@@ -1,4 +1,4 @@
-source ~/.bashrc
+[[ -r ~/.bashrc ]] && . ~/.bashrc
 
 ##
 # Your previous /Users/stwind/.bash_profile file was backed up as /Users/stwind/.bash_profile.macports-saved_2011-09-30_at_01:24:23
