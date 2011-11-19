@@ -508,6 +508,7 @@ nnoremap <Leader>gs :Gstatus<CR>
 "--------------------------------------------------
 nnoremap <Leader>t :CommandT<CR>
 nnoremap <D-t> :CommandT<CR>
+let g:CommandTMatchWindowAtTop = 1
 
 "--------------------------------------------------
 "surround.vim

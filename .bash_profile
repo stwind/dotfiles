@@ -1,5 +1,10 @@
 [[ -r ~/.bashrc ]] && . ~/.bashrc
 
+echo -e "Kernel Information: " `uname -smr`
+echo -e "`bash --version`"
+echo -ne "Uptime: "; uptime
+echo -ne "Server time: "; date
+
 ##
 # Your previous /Users/stwind/.bash_profile file was backed up as /Users/stwind/.bash_profile.macports-saved_2011-09-30_at_01:24:23
 ##

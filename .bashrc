@@ -24,12 +24,16 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias lsd='ls -l | grep "^d"'
 alias lsf='ls -l | grep "^-"'
+alias c="clear"
 
 alias v="vim"
 alias m="mvim"
 alias g="git"
 
 alias http="python -m SimpleHTTPServer"
+alias ducks="du -cks * | sort -rn | head -10"
+alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
+alias df="df -h"
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
@@ -37,3 +41,5 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1 
+
+export PROMPT_COMMAND='echo -ne "\\033]0;${USER}@${HOSTNAME%%.*} ${PWD}"; echo -ne "\\007"'
