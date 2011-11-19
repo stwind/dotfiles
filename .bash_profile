@@ -1,4 +1,6 @@
-[[ -r ~/.bashrc ]] && . ~/.bashrc
+for file in ~/.{bash_prompt,bashrc,aliases}; do
+  [ -r "$file" ] && source "$file"
+done
 
 echo -e "Kernel Information: " `uname -smr`
 echo -e "`bash --version`"

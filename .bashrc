@@ -17,7 +17,7 @@ export COLOR_GRAY='\e[0;30m'
 export COLOR_LIGHT_GRAY='\e[0;37m'
 alias colors="set | egrep 'COLOR_\\w*'"  # lists all the colors
 
-export PS1="${COLOR_YELLOW}[\t]${COLOR_NC} ${COLOR_CYAN}\u@\h${COLOR_NC}:${COLOR_GREEN}\W${COLOR_NC} $ "
+#export PS1="${COLOR_YELLOW}[\t]${COLOR_NC} ${COLOR_CYAN}\u@\h${COLOR_NC}:${COLOR_GREEN}\W${COLOR_NC} $ "
 
 alias ls="ls -Gahl"
 alias ..="cd .."
@@ -34,6 +34,12 @@ alias http="python -m SimpleHTTPServer"
 alias ducks="du -cks * | sort -rn | head -10"
 alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
 alias df="df -h"
+
+# Trim new lines and copy to clipboard
+alias pbc="tr -d '\n' | pbcopy"
+
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
