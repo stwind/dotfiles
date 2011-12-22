@@ -1,4 +1,4 @@
-for file in ~/.{bash_prompt,bashrc,aliases}; do
+for file in ~/.{bashrc,bash_prompt,aliases}; do
   [ -r "$file" ] && source "$file"
 done
 
@@ -12,6 +12,6 @@ echo -ne "Server time: "; date
 ##
 
 # MacPorts Installer addition on 2011-09-30_at_01:24:23: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/lib/mysql5/bin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
