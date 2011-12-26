@@ -415,6 +415,8 @@ endfunction
 vnoremap <silent> <space>e :call <SID>HtmlEscape()<CR>
 vnoremap <silent> <space>ue :call <SID>HtmlUnEscape()<CR>
 
+command! W w !sudo tee % > /dev/null
+
 "function! JISX0208SpaceHilight()
     "syntax match JISX0208Space "　" display containedin=ALL
     "hi JISX0208Space cterm=NONE ctermfg=148 ctermbg=236 gui=#002b36 guifg=#afd700 guibg=#303030
