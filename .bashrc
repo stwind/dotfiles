@@ -19,7 +19,7 @@ alias colors="set | egrep 'COLOR_\\w*'"  # lists all the colors
 
 #export PS1="${COLOR_YELLOW}[\t]${COLOR_NC} ${COLOR_CYAN}\u@\h${COLOR_NC}:${COLOR_GREEN}\W${COLOR_NC} $ "
 
-alias ls="ls -Gahl"
+alias ls="ls -Gahlp"
 alias ..="cd .."
 alias ...="cd ../.."
 alias lsd='ls -l | grep "^d"'
