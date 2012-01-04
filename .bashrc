@@ -23,7 +23,7 @@ alias ls="ls -Gahlp"
 alias ..="cd .."
 alias ...="cd ../.."
 alias lsd='ls -l | grep "^d"'
-alias lsf='ls -l | grep "^-"'
+alias lsf='ls -l | grep -v "^d"'
 alias c="clear"
 
 alias v="vim"
