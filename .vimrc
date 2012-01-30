@@ -14,6 +14,7 @@ Bundle "vim-scripts/IndentAnything"
 Bundle "Shougo/neocomplcache"
 Bundle "scrooloose/nerdtree"
 Bundle "scrooloose/nerdcommenter"
+Bundle "scrooloose/syntastic"
 Bundle "Shougo/unite.vim"
 Bundle "h1mesuke/unite-outline"
 Bundle "tsaleh/vim-align"
@@ -31,6 +32,7 @@ Bundle "rstacruz/sparkup"
 Bundle "bkad/CamelCaseMotion"
 "Bundle "vim-scripts/argtextobj.vim"
 Bundle "michaeljsmith/vim-indent-object"
+"Bundle 'gitv'
 
 filetype indent plugin on
 
@@ -126,6 +128,7 @@ let &statusline .= '%m%r '
 let &statusline .= 'Line:%l/%L[%p%%] '
 let &statusline .= 'Col:%c [%b][0x%B]'
 let &statusline .= '%='
+let &statusline .= '%{SyntasticStatuslineFlag()} '
 let &statusline .= '%{FileSize()}'
 set laststatus=2
 
@@ -511,11 +514,17 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>t :CommandT<CR>
 nnoremap <D-t> :CommandT<CR>
 let g:CommandTMatchWindowAtTop = 1
+set wildignore+=*.o,*.obj,*.git,*.beam
 
 "--------------------------------------------------
 "surround.vim
 "--------------------------------------------------
 "autocmd VimEnter * xunmap s
+
+"--------------------------------------------------
+"neocomplcache
+"--------------------------------------------------
+let g:syntastic_enable_balloons = 0
 
 "--------------------------------------------------
 "neocomplcache
