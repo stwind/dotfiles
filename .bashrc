@@ -24,7 +24,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias lsd='ls -l | grep "^d"'
 alias lsf='ls -l | grep -v "^d"'
-alias c="clear"
+alias gerl="grep -rin --include=\"*.erl\""
 
 alias v="vim"
 alias m="mvim"
