@@ -32,6 +32,8 @@ Bundle "rstacruz/sparkup"
 Bundle "bkad/CamelCaseMotion"
 "Bundle "vim-scripts/argtextobj.vim"
 Bundle "michaeljsmith/vim-indent-object"
+Bundle "t9md/vim-quickhl"
+"Bundle "thinca/vim-prettyprint"
 "Bundle 'gitv'
 
 filetype indent plugin on
@@ -496,6 +498,14 @@ call unite#set_buffer_name_option('files', 'smartcase', '0')
 "--------------------------------------------------
 nnoremap <leader>/ :M/
 nnoremap <leader>? :M?
+
+"--------------------------------------------------
+"quickhl.vim
+"--------------------------------------------------
+nmap <Space>m <Plug>(quickhl-toggle)
+xmap <Space>m <Plug>(quickhl-toggle)
+nmap <Space>M <Plug>(quickhl-reset)
+xmap <Space>M <Plug>(quickhl-reset)
 
 "--------------------------------------------------
 "sparkup
