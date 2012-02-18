@@ -33,6 +33,9 @@ Bundle "bkad/CamelCaseMotion"
 "Bundle "vim-scripts/argtextobj.vim"
 Bundle "michaeljsmith/vim-indent-object"
 Bundle "t9md/vim-quickhl"
+Bundle "vim-scripts/DirDiff.vim"
+Bundle "Lokaltog/vim-powerline"
+"Bundle "vim-scripts/Highlight-UnMatched-Brackets"
 "Bundle "thinca/vim-prettyprint"
 "Bundle 'gitv'
 
@@ -460,6 +463,11 @@ let g:NERDCustomDelimiters = {
 nnoremap <silent> <F4> :GundoToggle<CR>
 let g:gundo_preview_bottom = 1
 let g:gundo_right = 1
+
+"--------------------------------------------------
+"Gundo
+"--------------------------------------------------
+let g:Powerline_symbols='fancy'
 
 "--------------------------------------------------
 "Unite
