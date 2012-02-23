@@ -28,13 +28,16 @@ Bundle "sjl/gundo.vim"
 Bundle "wincent/Command-T"
 Bundle "hail2u/vim-css3-syntax"
 Bundle "skammer/vim-css-color"
-Bundle "rstacruz/sparkup"
+Bundle "groenewege/vim-less"
+"Bundle "rstacruz/sparkup"
 Bundle "bkad/CamelCaseMotion"
+Bundle "mattn/zencoding-vim"
 "Bundle "vim-scripts/argtextobj.vim"
 Bundle "michaeljsmith/vim-indent-object"
 Bundle "t9md/vim-quickhl"
 Bundle "vim-scripts/DirDiff.vim"
 Bundle "Lokaltog/vim-powerline"
+Bundle "Lokaltog/vim-easymotion"
 "Bundle "vim-scripts/Highlight-UnMatched-Brackets"
 "Bundle "thinca/vim-prettyprint"
 "Bundle 'gitv'
@@ -203,8 +206,8 @@ nnoremap <Space>wo :only<CR>
 nnoremap <Space>to :tabonly<CR>
 
 "scorlling up or down page
-noremap <Space>j <C-f>
-noremap <Space>k <C-b>
+noremap <D-j> <C-f>
+noremap <D-k> <C-b>
 
 "replace line
 nnoremap cp Pjdd
@@ -540,9 +543,19 @@ set wildignore+=*.o,*.obj,*.git,*.beam
 "autocmd VimEnter * xunmap s
 
 "--------------------------------------------------
-"neocomplcache
+"syntastic
 "--------------------------------------------------
 let g:syntastic_enable_balloons = 0
+
+"--------------------------------------------------
+"zencoding
+"--------------------------------------------------
+let g:user_zen_leader_key = '<D-y>'
+
+"--------------------------------------------------
+"easymotion
+"--------------------------------------------------
+let g:EasyMotion_leader_key = '<space>'
 
 "--------------------------------------------------
 "neocomplcache
