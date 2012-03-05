@@ -11,11 +11,12 @@ Bundle "jpo/vim-railscasts-theme"
 Bundle "othree/eregex.vim"
 Bundle "othree/html5.vim"
 Bundle "vim-scripts/IndentAnything"
-Bundle "Shougo/neocomplcache"
 Bundle "scrooloose/nerdtree"
 Bundle "scrooloose/nerdcommenter"
 Bundle "scrooloose/syntastic"
+Bundle "Shougo/neocomplcache"
 Bundle "Shougo/unite.vim"
+Bundle "Shougo/vimproc"
 Bundle "h1mesuke/unite-outline"
 Bundle "tsaleh/vim-align"
 Bundle "oscarh/vimerl"
@@ -35,7 +36,8 @@ Bundle "mattn/zencoding-vim"
 "Bundle "vim-scripts/argtextobj.vim"
 Bundle "michaeljsmith/vim-indent-object"
 Bundle "t9md/vim-quickhl"
-Bundle "vim-scripts/DirDiff.vim"
+"Bundle "vim-scripts/DirDiff.vim"
+Bundle "vim-scripts/django.vim"
 Bundle "Lokaltog/vim-powerline"
 Bundle "Lokaltog/vim-easymotion"
 "Bundle "vim-scripts/Highlight-UnMatched-Brackets"
@@ -149,6 +151,7 @@ autocmd BufReadPost *
 
 "respective filetype settings
 autocmd FileType javascript setlocal tabstop=2 | setlocal shiftwidth=2
+autocmd BufNewFile,BufRead *.dtl set filetype=htmldjango
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "=> key mappings
@@ -248,6 +251,11 @@ vnoremap <C-S-Down> :move '>+<CR>gv
 
 vnoremap > >gv
 vnoremap < <gv
+
+nnoremap <Left> <<
+nnoremap <Right> >>
+
+noremap <Leader>no :se nolist<CR>
 
 "cancel search highlight
 nnoremap <leader><CR> :noh<CR>
@@ -494,6 +502,7 @@ nnoremap <Leader>uf :<C-u>Unite -buffer-name=files file<CR>
 nnoremap <leader>ux :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <leader>uo :<C-u>Unite -buffer-name=outline -vertical -winwidth=50 -no-quit -no-start-insert outline<CR>
 nnoremap <leader>uh :<C-u>Unite -buffer-name=history -vertical -winwidth=35 history/command<CR>
+nnoremap <leader>ul :<C-u>Unite -buffer-name=line line<CR>
 
 autocmd Filetype unite nnoremap <silent> <buffer> <expr> s unite#do_action('split')
 autocmd Filetype unite nnoremap <silent> <buffer> <expr> v unite#do_action('vsplit')
