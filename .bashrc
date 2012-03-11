@@ -33,7 +33,7 @@ alias g="git"
 alias php-cgi="php-cgi -b 127.0.0.1:9000 &"
 alias mysqld="sudo mysqld_safe"
 
-alias http="python -m SimpleHTTPServer"
+alias shs="python -m SimpleHTTPServer"
 alias ducks="du -cks * | sort -rn | head -10"
 alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
 alias df="df -h"
