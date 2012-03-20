@@ -17,9 +17,7 @@ export COLOR_GRAY='\e[0;30m'
 export COLOR_LIGHT_GRAY='\e[0;37m'
 alias colors="set | egrep 'COLOR_\\w*'"  # lists all the colors
 
-#export PS1="${COLOR_YELLOW}[\t]${COLOR_NC} ${COLOR_CYAN}\u@\h${COLOR_NC}:${COLOR_GREEN}\W${COLOR_NC} $ "
-
-alias ls="ls -Gahlp"
+alias ls="ls -Gahlp | sort -f -k 1.1,1.1r -k 9,9"
 alias ..="cd .."
 alias ...="cd ../.."
 alias lsd='ls -l | grep "^d"'
@@ -48,7 +46,7 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 export TERM=xterm-color
-export GREP_OPTIONS='--color=auto' GREP_COLOR='1;30'
+export GREP_OPTIONS='--color=auto' GREP_COLOR='0;33'
 export CLICOLOR=1 
 
 export PROMPT_COMMAND='echo -ne "\\033]0;`basename ${PWD}`"; echo -ne "\\007"'

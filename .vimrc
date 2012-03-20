@@ -298,6 +298,9 @@ vnoremap z? <ESC>?\%V
 "back to normal mode from insert mode
 imap jj <ESC>
 
+"toggle fold
+nnoremap <space>a za
+
 "expand path on command-line
 cmap <C-x> <C-r>=expand('%:p:h')<CR>/
 cmap <C-z> <C-r>=expand('%:p')<CR>
@@ -503,7 +506,7 @@ nnoremap <Leader>uf :<C-u>Unite -buffer-name=files file<CR>
 nnoremap <leader>ux :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <leader>uo :<C-u>Unite -buffer-name=outline -vertical -winwidth=50 -no-quit -no-start-insert outline<CR>
 nnoremap <leader>uh :<C-u>Unite -buffer-name=history -vertical -winwidth=35 history/command<CR>
-nnoremap <leader>ul :<C-u>Unite -buffer-name=line line<CR>
+nnoremap <leader>ul :<C-u>Unite -buffer-name=line -vertical line<CR>
 
 autocmd Filetype unite nnoremap <silent> <buffer> <expr> s unite#do_action('split')
 autocmd Filetype unite nnoremap <silent> <buffer> <expr> v unite#do_action('vsplit')
