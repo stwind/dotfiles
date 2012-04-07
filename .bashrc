@@ -29,7 +29,7 @@ alias m="mvim"
 alias g="git"
 
 alias php-cgi="php-cgi -b 127.0.0.1:9000 &"
-alias mysqld="sudo mysqld_safe"
+alias redis="redis-server /usr/local/etc/redis.conf"
 
 alias shs="python -m SimpleHTTPServer"
 alias ducks="du -cks * | sort -rn | head -10"

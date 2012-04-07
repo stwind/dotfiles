@@ -15,6 +15,7 @@ Bundle "scrooloose/nerdtree"
 Bundle "scrooloose/nerdcommenter"
 Bundle "scrooloose/syntastic"
 Bundle "Shougo/neocomplcache"
+Bundle "Shougo/neocomplcache-snippets-complete"
 Bundle "Shougo/unite.vim"
 Bundle "Shougo/vimproc"
 Bundle "h1mesuke/unite-outline"
@@ -29,6 +30,7 @@ Bundle "tpope/vim-surround"
 Bundle "sjl/gundo.vim"
 Bundle "wincent/Command-T"
 Bundle "hail2u/vim-css3-syntax"
+Bundle "kana/vim-smartinput"
 Bundle "skammer/vim-css-color"
 Bundle "groenewege/vim-less"
 "Bundle "rstacruz/sparkup"
@@ -41,9 +43,10 @@ Bundle "t9md/vim-quickhl"
 Bundle "vim-scripts/django.vim"
 Bundle "Lokaltog/vim-powerline"
 Bundle "Lokaltog/vim-easymotion"
+Bundle "vim-scripts/kwbdi.vim"
 "Bundle "vim-scripts/Highlight-UnMatched-Brackets"
 "Bundle "thinca/vim-prettyprint"
-"Bundle 'gitv'
+"Bundle "gregsexton/gitv"
 
 filetype indent plugin on
 
@@ -58,7 +61,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 set nowrap
-set number
+set relativenumber
 set showcmd
 set cmdheight=1
 set showmode
@@ -142,6 +145,9 @@ let &statusline .= '%='
 let &statusline .= '%{SyntasticStatuslineFlag()} '
 let &statusline .= '%{FileSize()}'
 set laststatus=2
+
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
 
 "This autocommand jumps to the last known position in a file
 "just after opening it, if the '" mark is set: >
@@ -233,12 +239,12 @@ endif
 "toggle tabline
 nnoremap <F11> :let &showtabline = &showtabline == 1 ? 0 : 1<CR>
 
-imap "" ""<LEFT>
-imap '' ''<LEFT>
-imap <> <><LEFT>
-imap () ()<LEFT>
-imap {} {}<LEFT>
-imap [] []<LEFT>
+"imap "" ""<LEFT>
+"imap '' ''<LEFT>
+"imap <> <><LEFT>
+"imap () ()<LEFT>
+"imap {} {}<LEFT>
+"imap [] []<LEFT>
 cmap "" ""<LEFT>
 cmap '' ''<LEFT>
 cmap <> <><LEFT>
