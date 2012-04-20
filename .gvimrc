@@ -1,6 +1,7 @@
 set background=light
 colorscheme solarized
-set guifont=Menlo\ for\ Powerline:h12
+set guifont=InConsolata-dz\ for\ Powerline:h12
+set linespace=-2
 
 set cmdheight=1
 

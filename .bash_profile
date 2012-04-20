@@ -8,3 +8,4 @@ echo -ne "Uptime: "; uptime
 echo -ne "Server time: "; date
 
 export PATH=/usr/local/bin:$PATH
+export LC_CTYPE="en_GB.UTF-8"

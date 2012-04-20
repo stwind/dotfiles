@@ -32,6 +32,7 @@ Bundle "wincent/Command-T"
 Bundle "hail2u/vim-css3-syntax"
 Bundle "kana/vim-smartinput"
 Bundle "skammer/vim-css-color"
+Bundle "kchmck/vim-coffee-script"
 Bundle "groenewege/vim-less"
 "Bundle "rstacruz/sparkup"
 Bundle "bkad/CamelCaseMotion"
@@ -44,8 +45,11 @@ Bundle "vim-scripts/django.vim"
 Bundle "Lokaltog/vim-powerline"
 Bundle "Lokaltog/vim-easymotion"
 Bundle "vim-scripts/kwbdi.vim"
+Bundle "ajf/puppet-vim"
 "Bundle "vim-scripts/Highlight-UnMatched-Brackets"
 "Bundle "thinca/vim-prettyprint"
+Bundle "thinca/vim-visualstar"
+Bundle "sjl/clam.vim"
 "Bundle "gregsexton/gitv"
 
 filetype indent plugin on
@@ -489,6 +493,11 @@ let g:gundo_right = 1
 "Gundo
 "--------------------------------------------------
 let g:Powerline_symbols='fancy'
+
+"--------------------------------------------------
+"clam.vim
+"--------------------------------------------------
+nnoremap ! :Clam<space>
 
 "--------------------------------------------------
 "Unite
