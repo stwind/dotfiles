@@ -31,6 +31,10 @@ alias g="git"
 alias php-cgi="php-cgi -b 127.0.0.1:9000 &"
 alias redis="redis-server /usr/local/etc/redis.conf"
 
+## http://ruslanspivak.com/2010/06/02/urlencode-and-urldecode-from-a-command-line/
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.stdin.read())"'
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.stdin.read())"'
+
 alias shs="python -m SimpleHTTPServer"
 alias ducks="du -cks * | sort -rn | head -10"
 alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
