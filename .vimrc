@@ -89,6 +89,7 @@ set history=100
 set guioptions+=lLrRbmTe
 set guioptions-=lLrRbmTe
 set mouse=
+set vb
 set mousehide
 set nomousefocus
 set selectmode=mouse
@@ -190,6 +191,8 @@ nnoremap j gj
 vnoremap j gj
 nnoremap k gk
 vnoremap k gk
+
+nnoremap K <Nop>
 
 imap <C-f> <Right>
 imap <C-b> <Left>
@@ -310,6 +313,9 @@ imap jj <ESC>
 
 "toggle fold
 nnoremap <space>a za
+
+"clost tab
+nnoremap <Leader>tc :tabc<CR>
 
 "expand path on command-line
 cmap <C-x> <C-r>=expand('%:p:h')<CR>/
