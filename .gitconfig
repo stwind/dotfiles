@@ -1,0 +1,11 @@
+[color]
+	ui = true
+[alias]
+	st = status
+	com = commit
+	co = checkout
+	br = branch
+	cl = clone
+[user]
+	email = stwindfy@gmail.com
+	name = stwind
