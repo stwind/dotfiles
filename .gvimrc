@@ -3,6 +3,8 @@ colorscheme solarized
 set guifont=InConsolata-dz\ for\ Powerline:h12
 set linespace=-2
 
+set visualbell
+
 set cmdheight=1
 
 if has("mac")
