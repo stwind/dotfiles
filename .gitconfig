@@ -9,3 +9,5 @@
 [user]
 	email = stwindfy@gmail.com
 	name = stwind
+[core]
+	editor = /usr/bin/vim
