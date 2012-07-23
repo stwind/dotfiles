@@ -165,7 +165,7 @@ autocmd BufReadPost *
             \ endif
 
 "respective filetype settings
-autocmd FileType javascript setlocal tabstop=2 | setlocal shiftwidth=2
+autocmd FileType javascript,ruby,yaml setlocal tabstop=2 | setlocal shiftwidth=2
 autocmd BufNewFile,BufRead *.dtl set filetype=htmldjango
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -291,7 +291,7 @@ cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
 "quick search
-nnoremap // /^[\s\t]*
+nnoremap // /^[ \t]*
 nnoremap <Space>/ /\<\><left><left>
 
 "makes ctrl-u undoable
@@ -587,7 +587,13 @@ let g:syntastic_enable_balloons = 0
 "--------------------------------------------------
 "zencoding
 "--------------------------------------------------
-let g:user_zen_leader_key = '<D-y>'
+"let g:user_zen_leader_key = '<D-y>'
+
+"--------------------------------------------------
+"solarized
+"--------------------------------------------------
+let g:solarized_contrast = "high"
+let g:solarized_visibility = "high"
 
 "--------------------------------------------------
 "easymotion

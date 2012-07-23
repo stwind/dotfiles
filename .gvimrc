@@ -1,4 +1,4 @@
-set background=light
+set background=dark
 colorscheme solarized
 set guifont=InConsolata-dz\ for\ Powerline:h12
 set linespace=-2

@@ -29,6 +29,7 @@ alias m="mvim"
 alias g="git"
 
 alias php-cgi="php-cgi -b 127.0.0.1:9000 &"
+alias mongod="mongod --dbpath ~/apps/build/mongodb/data/db --fork --logpath ~/apps/build/mongodb/log/mongodb.log --logappend"
 alias redis="redis-server /usr/local/etc/redis.conf"
 
 ## http://ruslanspivak.com/2010/06/02/urlencode-and-urldecode-from-a-command-line/
