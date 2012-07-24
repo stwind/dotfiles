@@ -14,3 +14,4 @@ export PYTHONPATH=/Library/Python/2.7/site-packages:/usr/local/Cellar/py2cairo/1
 export NODE_PATH=$(npm root -g)
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator

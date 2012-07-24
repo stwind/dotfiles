@@ -56,6 +56,8 @@ export CLICOLOR=1
 
 export PROMPT_COMMAND='echo -ne "\\033]0;`basename ${PWD}`"; echo -ne "\\007"'
 
+export EDITOR="vim"
+
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # For colourful man pages (CLUG-Wiki style)
