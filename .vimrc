@@ -53,6 +53,7 @@ Bundle "ajf/puppet-vim"
 "Bundle "thinca/vim-prettyprint"
 Bundle "thinca/vim-visualstar"
 Bundle "sjl/clam.vim"
+Bundle "peterhoeg/vim-tmux"
 "Bundle "gregsexton/gitv"
 
 filetype indent plugin on
