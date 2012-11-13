@@ -7,6 +7,7 @@ call vundle#rc()
 Bundle "gmarik/vundle"
 Bundle "tpope/vim-fugitive"
 Bundle "altercation/vim-colors-solarized"
+Bundle "chriskempson/vim-tomorrow-theme"
 Bundle "jpo/vim-railscasts-theme"
 Bundle "othree/eregex.vim"
 Bundle "othree/html5.vim"
@@ -15,7 +16,7 @@ Bundle "scrooloose/nerdtree"
 Bundle "scrooloose/nerdcommenter"
 Bundle "scrooloose/syntastic"
 Bundle "Shougo/neocomplcache"
-Bundle "Shougo/neocomplcache-snippets-complete"
+Bundle "Shougo/neosnippet"
 Bundle "Shougo/unite.vim"
 Bundle "Shougo/vimproc"
 Bundle "h1mesuke/unite-outline"
@@ -36,7 +37,7 @@ Bundle "kchmck/vim-coffee-script"
 Bundle "vim-ruby/vim-ruby"
 Bundle "me-vlad/python-syntax.vim"
 Bundle "depuracao/vim-rdoc"
-Bundle "groenewege/vim-less"
+"Bundle "groenewege/vim-less"
 "Bundle "rstacruz/sparkup"
 Bundle "bkad/CamelCaseMotion"
 Bundle "mattn/zencoding-vim"
@@ -48,12 +49,16 @@ Bundle "vim-scripts/django.vim"
 Bundle "Lokaltog/vim-powerline"
 Bundle "Lokaltog/vim-easymotion"
 Bundle "vim-scripts/kwbdi.vim"
+"Bundle "kien/ctrlp.vim"
 Bundle "ajf/puppet-vim"
 "Bundle "vim-scripts/Highlight-UnMatched-Brackets"
 "Bundle "thinca/vim-prettyprint"
 Bundle "thinca/vim-visualstar"
 Bundle "sjl/clam.vim"
 Bundle "peterhoeg/vim-tmux"
+"Bundle "Shougo/vimfiler"
+"Bundle "tejr/vim-nagios"
+"Bundle "timcharper/textile"
 "Bundle "gregsexton/gitv"
 
 filetype indent plugin on
@@ -168,6 +173,7 @@ autocmd BufReadPost *
 "respective filetype settings
 autocmd FileType javascript,ruby,yaml setlocal tabstop=2 | setlocal shiftwidth=2
 autocmd BufNewFile,BufRead *.dtl set filetype=htmldjango
+autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "=> key mappings
@@ -250,12 +256,6 @@ endif
 "toggle tabline
 nnoremap <F11> :let &showtabline = &showtabline == 1 ? 0 : 1<CR>
 
-"imap "" ""<LEFT>
-"imap '' ''<LEFT>
-"imap <> <><LEFT>
-"imap () ()<LEFT>
-"imap {} {}<LEFT>
-"imap [] []<LEFT>
 cmap "" ""<LEFT>
 cmap '' ''<LEFT>
 cmap <> <><LEFT>
@@ -292,7 +292,7 @@ cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
 "quick search
-nnoremap // /^[ \t]*
+nnoremap // /^
 nnoremap <Space>/ /\<\><left><left>
 
 "makes ctrl-u undoable
@@ -320,6 +320,16 @@ nnoremap <space>a za
 
 "clost tab
 nnoremap <Leader>tc :tabc<CR>
+
+nnoremap <D-1> 1gt
+nnoremap <D-2> 2gt
+nnoremap <D-3> 3gt
+nnoremap <D-4> 4gt
+nnoremap <D-5> 5gt
+nnoremap <D-6> 6gt
+nnoremap <D-7> 7gt
+nnoremap <D-8> 8gt
+nnoremap <D-9> 9gt
 
 "expand path on command-line
 cmap <C-x> <C-r>=expand('%:p:h')<CR>/
@@ -482,6 +492,7 @@ nnoremap <silent> <Leader>nf :NERDTreeFind<CR>
 let NERDTreeWinPos = "right"
 let NERDTreeMinimalUI = 1
 let NERDTreeWinSize = 38
+let NERDTreeIgnore=['\.beam$']
 
 "--------------------------------------------------
 "NerdCommenter

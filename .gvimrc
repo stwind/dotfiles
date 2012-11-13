@@ -1,7 +1,9 @@
 set background=dark
 colorscheme solarized
-set guifont=InConsolata-dz\ for\ Powerline:h12
-set linespace=-2
+"set guifont=InConsolata-dz\ for\ Powerline:h12
+set guifont=Menlo:h12
+"set linespace=-2
+set linespace=0
 
 set visualbell
 

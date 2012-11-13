@@ -7,7 +7,7 @@ done
 #echo -ne "Uptime: "; uptime
 #echo -ne "Server time: "; date
 
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:$PATH
 export LC_CTYPE="en_GB.UTF-8"
 
 export PYTHONPATH=/Library/Python/2.7/site-packages:/usr/local/Cellar/py2cairo/1.10.0/lib/python2.7/site-packages:$PYTHONPATH
