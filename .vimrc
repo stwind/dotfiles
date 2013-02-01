@@ -313,6 +313,7 @@ vnoremap z/ <ESC>/\%V
 vnoremap z? <ESC>?\%V
 
 "back to normal mode from insert mode
+"imap jj <ESC>
 imap jj <ESC>
 
 "toggle fold
