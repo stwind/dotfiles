@@ -37,7 +37,7 @@ Bundle "kchmck/vim-coffee-script"
 Bundle "vim-ruby/vim-ruby"
 Bundle "me-vlad/python-syntax.vim"
 Bundle "depuracao/vim-rdoc"
-"Bundle "groenewege/vim-less"
+Bundle "groenewege/vim-less"
 "Bundle "rstacruz/sparkup"
 Bundle "bkad/CamelCaseMotion"
 Bundle "mattn/zencoding-vim"
@@ -56,6 +56,9 @@ Bundle "ajf/puppet-vim"
 Bundle "thinca/vim-visualstar"
 Bundle "sjl/clam.vim"
 Bundle "peterhoeg/vim-tmux"
+Bundle "nono/vim-handlebars"
+Bundle "rking/ag.vim"
+Bundle "majutsushi/tagbar"
 "Bundle "Shougo/vimfiler"
 "Bundle "tejr/vim-nagios"
 "Bundle "timcharper/textile"
@@ -612,6 +615,11 @@ let g:solarized_visibility = "high"
 "easymotion
 "--------------------------------------------------
 let g:EasyMotion_leader_key = '<space>'
+
+"--------------------------------------------------
+"tagbar
+"--------------------------------------------------
+nnoremap <F8> :TagbarToggle<CR>
 
 "--------------------------------------------------
 "neocomplcache

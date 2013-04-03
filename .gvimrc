@@ -1,7 +1,8 @@
 set background=dark
 colorscheme solarized
 "set guifont=InConsolata-dz\ for\ Powerline:h12
-set guifont=Menlo:h12
+set guifont=Menlo\ for\ Powerline:h12
+"set guifont=DejaVu\ Sans\ Mono\ For\ Powerline:h12
 "set linespace=-2
 set linespace=0
 
