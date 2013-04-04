@@ -32,6 +32,7 @@ Bundle "sjl/gundo.vim"
 Bundle "wincent/Command-T"
 Bundle "hail2u/vim-css3-syntax"
 Bundle "kana/vim-smartinput"
+Bundle "kana/vim-smartchr"
 Bundle "skammer/vim-css-color"
 Bundle "kchmck/vim-coffee-script"
 Bundle "vim-ruby/vim-ruby"
@@ -562,6 +563,12 @@ call unite#set_buffer_name_option('files', 'smartcase', '0')
 "--------------------------------------------------
 nnoremap <leader>/ :M/
 nnoremap <leader>? :M?
+let g:eregex_default_enable = 0
+
+"--------------------------------------------------
+"smartchr
+"--------------------------------------------------
+inoremap <expr> - smartchr#loop('-', '->')
 
 "--------------------------------------------------
 "quickhl.vim
