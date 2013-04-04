@@ -20,6 +20,7 @@ alias colors="set | egrep 'COLOR_\\w*'"  # lists all the colors
 alias ls="ls -Gahlp | sort -f -k 1.1,1.1r -k 9,9"
 alias ..="cd .."
 alias ...="cd ../.."
+alias ....="cd ../../.."
 alias lsd='ls -l | grep "^d"'
 alias lsf='ls -l | grep -v "^d"'
 alias gerl="grep -rin --include=\"*.erl\""
@@ -27,10 +28,6 @@ alias gerl="grep -rin --include=\"*.erl\""
 alias v="vim"
 alias m="mvim"
 alias g="git"
-
-alias php-cgi="php-cgi -b 127.0.0.1:9000 &"
-alias mongod="mongod --dbpath ~/apps/build/mongodb/data/db --fork --logpath ~/apps/build/mongodb/log/mongodb.log --logappend"
-alias redis="redis-server /usr/local/etc/redis.conf"
 
 ## http://ruslanspivak.com/2010/06/02/urlencode-and-urldecode-from-a-command-line/
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.stdin.read())"'
@@ -58,8 +55,6 @@ export PROMPT_COMMAND='echo -ne "\\033]0;`basename ${PWD}`"; echo -ne "\\007"'
 
 export EDITOR="vim"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 # For colourful man pages (CLUG-Wiki style)
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
@@ -72,3 +67,5 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 function mux {
     tmux new "tmuxifier s $1"
 }
+
+. `brew --prefix`/etc/profile.d/z.sh
