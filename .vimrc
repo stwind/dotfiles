@@ -15,15 +15,17 @@ Bundle "vim-scripts/IndentAnything"
 Bundle "scrooloose/nerdtree"
 Bundle "scrooloose/nerdcommenter"
 Bundle "scrooloose/syntastic"
-Bundle "Shougo/neocomplcache"
-Bundle "Shougo/neosnippet"
+Bundle "Shougo/neocomplcache.vim"
+Bundle "Shougo/neosnippet.vim"
 Bundle "Shougo/unite.vim"
 Bundle "Shougo/vimproc"
 Bundle "h1mesuke/unite-outline"
 Bundle "h1mesuke/vim-alignta"
 "Bundle "tsaleh/vim-align"
+"Bundle "oscarh/vimerl"
 Bundle "jimenezrick/vimerl"
 Bundle "pangloss/vim-javascript"
+Bundle "jelera/vim-javascript-syntax"
 Bundle "vim-scripts/L9"
 Bundle "edsono/vim-matchit"
 Bundle "tpope/vim-repeat"
@@ -61,6 +63,8 @@ Bundle "peterhoeg/vim-tmux"
 Bundle "nono/vim-handlebars"
 Bundle "rking/ag.vim"
 Bundle "majutsushi/tagbar"
+Bundle "vim-scripts/VisIncr"
+Bundle "Yggdroot/indentLine"
 "Bundle "Shougo/vimfiler"
 "Bundle "tejr/vim-nagios"
 "Bundle "timcharper/textile"
@@ -529,7 +533,7 @@ nnoremap ! :Clam<space>
 "--------------------------------------------------
 "Unite
 "--------------------------------------------------
-let g:unite_source_file_mru_limit = 200
+let g:unite_source_file_mru_limit = 300
 let g:unite_source_file_mru_time_format= ''
 let g:unite_source_file_mru_filename_format = ':.'
 let g:unite_source_directory_mru_limit = 200
@@ -555,9 +559,14 @@ autocmd Filetype unite nnoremap <silent> <buffer> <expr> v unite#do_action('vspl
 autocmd Filetype unite nnoremap <silent> <buffer> <expr> t unite#do_action('tabopen')
 autocmd Filetype unite inoremap <silent> <buffer> jj <ESC>0
 
-call unite#set_substitute_pattern('files', '^.\+[^~.*]*', '*\0*', 100)
-call unite#set_buffer_name_option('files', 'ignorecase', '1')
-call unite#set_buffer_name_option('files', 'smartcase', '0')
+"call unite#set_buffer_name_option('files', 'smartcase', '0')
+
+call unite#custom#profile('files', 'substitute_patterns', {
+            \ 'pattern' : '^.\+[^~.*]*',
+            \ 'subst' : '*\0*',
+            \ 'priority' : 100,
+            \ })
+call unite#custom#profile('files', 'ignorecase', 1)
 
 "--------------------------------------------------
 "eregex.vim
@@ -569,7 +578,7 @@ let g:eregex_default_enable = 0
 "--------------------------------------------------
 "smartchr
 "--------------------------------------------------
-inoremap <expr> - smartchr#loop('-', '->')
+inoremap <expr> - smartchr#loop('-', '->', '--')
 
 "--------------------------------------------------
 "quickhl.vim
@@ -607,6 +616,7 @@ set wildignore+=*.o,*.obj,*.git,*.beam
 "syntastic
 "--------------------------------------------------
 let g:syntastic_enable_balloons = 0
+let g:syntastic_erlc_include_path = "../include"
 
 "--------------------------------------------------
 "zencoding
@@ -671,6 +681,9 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 "Align
 let g:Align_xstrlen=2
+
+"vimerl
+:let erlang_show_errors = 0
 
 "language
 set langmenu=en_US

@@ -38,6 +38,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=/Users/stwind/.rbenv/shims:/Users/stwind/.tmuxifier/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/texbin:/opt/local/bin:/usr/local/git/bin
+export PYTHONPATH=/Library/Python/2.7/site-packages:/usr/local/Cellar/py2cairo/1.10.0/lib/python2.7/site-packages:$PYTHONPATH
 
 export LC_CTYPE="en_GB.UTF-8"
 
@@ -48,6 +49,9 @@ alias pbc="tr -d '\n' | pbcopy"
 alias v="vim"
 alias m="mvim"
 alias g="git"
+
+alias shs="python -m SimpleHTTPServer"
+alias uuid='python -c "import uuid;print str(uuid.uuid4())" | tr -d "\n"'
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
@@ -74,3 +78,5 @@ function mux {
 }
 
 . `brew --prefix`/etc/profile.d/z.sh
+
+disable r
