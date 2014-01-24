@@ -65,14 +65,13 @@ Bundle "rking/ag.vim"
 Bundle "majutsushi/tagbar"
 Bundle "vim-scripts/VisIncr"
 Bundle "Yggdroot/indentLine"
+Bundle "dag/vim2hs"
 "Bundle "Shougo/vimfiler"
 "Bundle "tejr/vim-nagios"
 "Bundle "timcharper/textile"
 "Bundle "gregsexton/gitv"
 
 filetype indent plugin on
-
-let s:iswin = has("win32") || has("wind64")
 
 set encoding=utf-8
 set termencoding=utf-8
@@ -683,7 +682,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 let g:Align_xstrlen=2
 
 "vimerl
-:let erlang_show_errors = 0
+let erlang_show_errors = 0
 
 "language
 set langmenu=en_US
