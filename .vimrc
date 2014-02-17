@@ -20,8 +20,7 @@ Bundle "Shougo/neosnippet.vim"
 Bundle "Shougo/unite.vim"
 Bundle "Shougo/vimproc"
 Bundle "h1mesuke/unite-outline"
-Bundle "h1mesuke/vim-alignta"
-"Bundle "tsaleh/vim-align"
+Bundle "junegunn/vim-easy-align"
 "Bundle "oscarh/vimerl"
 Bundle "jimenezrick/vimerl"
 Bundle "pangloss/vim-javascript"
@@ -582,10 +581,10 @@ inoremap <expr> - smartchr#loop('-', '->', '--')
 "--------------------------------------------------
 "quickhl.vim
 "--------------------------------------------------
-nmap <Space>m <Plug>(quickhl-toggle)
-xmap <Space>m <Plug>(quickhl-toggle)
-nmap <Space>M <Plug>(quickhl-reset)
-xmap <Space>M <Plug>(quickhl-reset)
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+nmap <Space>M <Plug>(quickhl-manual-reset)
+xmap <Space>M <Plug>(quickhl-manual-reset)
 
 "--------------------------------------------------
 "sparkup
