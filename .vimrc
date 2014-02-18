@@ -598,6 +598,10 @@ xmap <Space>M <Plug>(quickhl-manual-reset)
 nnoremap <Leader>gs :Gstatus<CR>
 
 "--------------------------------------------------
+"EasyAlign
+"--------------------------------------------------
+vmap <Enter> <Plug>(EasyAlign)
+"--------------------------------------------------
 "Comman-T
 "--------------------------------------------------
 nnoremap <Leader>t :CommandT<CR>
