@@ -7,6 +7,7 @@ call vundle#rc()
 Bundle "gmarik/vundle"
 Bundle "tpope/vim-fugitive"
 Bundle "altercation/vim-colors-solarized"
+Bundle 'tomasr/molokai'
 Bundle "chriskempson/vim-tomorrow-theme"
 Bundle "jpo/vim-railscasts-theme"
 Bundle "othree/eregex.vim"
@@ -60,7 +61,7 @@ Bundle "thinca/vim-visualstar"
 Bundle "sjl/clam.vim"
 Bundle "peterhoeg/vim-tmux"
 Bundle "nono/vim-handlebars"
-Bundle "rking/ag.vim"
+Bundle 'dyng/ctrlsf.vim'
 Bundle "majutsushi/tagbar"
 Bundle "vim-scripts/VisIncr"
 Bundle "Yggdroot/indentLine"
@@ -640,7 +641,10 @@ let g:EasyMotion_leader_key = '<space>'
 "tagbar
 "--------------------------------------------------
 nnoremap <F8> :TagbarToggle<CR>
-
+"--------------------------------------------------
+"CtrlSF
+"--------------------------------------------------
+let g:ctrlsf_ackprg = 'ag'
 "--------------------------------------------------
 "neocomplcache
 "--------------------------------------------------
