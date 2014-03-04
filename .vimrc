@@ -7,7 +7,6 @@ call vundle#rc()
 Bundle "gmarik/vundle"
 Bundle "tpope/vim-fugitive"
 Bundle "altercation/vim-colors-solarized"
-Bundle 'tomasr/molokai'
 Bundle "chriskempson/vim-tomorrow-theme"
 Bundle "jpo/vim-railscasts-theme"
 Bundle "othree/eregex.vim"

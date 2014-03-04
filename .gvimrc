@@ -1,5 +1,5 @@
 set background=dark
-colorscheme molokai
+colorscheme solarized
 "set guifont=InConsolata-dz\ for\ Powerline:h12
 "set guifont=Menlo\ for\ Powerline:h12
 set guifont=Droid\ Sans\ Mono\ For\ Powerline:h12
