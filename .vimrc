@@ -618,7 +618,7 @@ set wildignore+=*.o,*.obj,*.git,*.beam
 "syntastic
 "--------------------------------------------------
 let g:syntastic_enable_balloons = 0
-let g:syntastic_erlc_include_path = "../include"
+let g:syntastic_erlang_checkers = ['syntaxerl']
 
 "--------------------------------------------------
 "zencoding
