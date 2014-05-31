@@ -500,7 +500,7 @@ nnoremap <silent> <Leader>nf :NERDTreeFind<CR>
 let NERDTreeWinPos = "right"
 let NERDTreeMinimalUI = 1
 let NERDTreeWinSize = 38
-let NERDTreeIgnore=['\.beam$']
+let NERDTreeIgnore=['\.beam$', '\.pyc$']
 
 "--------------------------------------------------
 "NerdCommenter
