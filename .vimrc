@@ -51,7 +51,8 @@ Plugin 'michaeljsmith/vim-indent-object'
 Plugin 't9md/vim-quickhl'
 "Plugin 'vim-scripts/DirDiff.vim'
 Plugin 'vim-scripts/django.vim'
-Plugin 'Lokaltog/vim-powerline'
+"Plugin 'Lokaltog/vim-powerline'
+Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'vim-scripts/kwbdi.vim'
 "Plugin 'kien/ctrlp.vim'
@@ -77,6 +78,7 @@ call vundle#end()
 filetype indent plugin on
 
 set encoding=utf-8
+set t_Co=256
 set termencoding=utf-8
 set ttyfast
 set ambiwidth=double
@@ -523,9 +525,23 @@ let g:gundo_preview_bottom = 1
 let g:gundo_right = 1
 
 "--------------------------------------------------
-"Gundo
+"Powerline
 "--------------------------------------------------
 let g:Powerline_symbols='fancy'
+
+"--------------------------------------------------
+"Airline
+"--------------------------------------------------
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
 
 "--------------------------------------------------
 "clam.vim
