@@ -84,3 +84,5 @@ disable r
 genpasswd() { 
     pwgen -Bcyns $1 1 | pbc ; echo Has been copied to clipboard
 }
+
+source $(which virtualenvwrapper.sh)

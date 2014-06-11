@@ -7,7 +7,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'chriskempson/base16-vim'
 Plugin 'jpo/vim-railscasts-theme'
 Plugin 'othree/eregex.vim'
 Plugin 'othree/html5.vim'
@@ -627,7 +627,7 @@ vmap <Enter> <Plug>(EasyAlign)
 nnoremap <Leader>t :CommandT<CR>
 nnoremap <D-t> :CommandT<CR>
 let g:CommandTMatchWindowAtTop = 1
-set wildignore+=*.o,*.obj,*.git,*.beam
+set wildignore+=*.o,*.obj,*.git,*.beam,*.pyc
 
 "--------------------------------------------------
 "surround.vim
@@ -656,6 +656,10 @@ let g:solarized_visibility = "high"
 "--------------------------------------------------
 let g:EasyMotion_leader_key = '<space>'
 
+"--------------------------------------------------
+"base16
+"--------------------------------------------------
+let base16colorspace=256
 "--------------------------------------------------
 "tagbar
 "--------------------------------------------------
