@@ -22,7 +22,6 @@ Plugin 'Shougo/vimproc'
 Plugin 'h1mesuke/unite-outline'
 Plugin 'Shougo/neomru.vim'
 Plugin 'junegunn/vim-easy-align'
-"Plugin 'oscarh/vimerl'
 Plugin 'jimenezrick/vimerl'
 Plugin 'mkitt/tabline.vim'
 Plugin 'pangloss/vim-javascript'
@@ -39,7 +38,7 @@ Plugin 'kana/vim-smartchr'
 Plugin 'skammer/vim-css-color'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'me-vlad/python-syntax.vim'
+Plugin 'hdima/python-syntax'
 Plugin 'depuracao/vim-rdoc'
 Plugin 'groenewege/vim-less'
 Plugin 'rhysd/clever-f.vim'
@@ -51,7 +50,6 @@ Plugin 'michaeljsmith/vim-indent-object'
 Plugin 't9md/vim-quickhl'
 "Plugin 'vim-scripts/DirDiff.vim'
 Plugin 'vim-scripts/django.vim'
-"Plugin 'Lokaltog/vim-powerline'
 Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'vim-scripts/kwbdi.vim'
@@ -69,8 +67,6 @@ Plugin 'vim-scripts/VisIncr'
 Plugin 'Yggdroot/indentLine'
 Plugin 'dag/vim2hs'
 "Bundle 'Shougo/vimfiler'
-"Bundle 'tejr/vim-nagios'
-"Bundle 'timcharper/textile'
 "Bundle 'gregsexton/gitv'
 
 call vundle#end() 
@@ -161,16 +157,6 @@ function! FileSize()
     endif
 endfunction
 
-let &statusline = ''
-let &statusline .= '[#%n]'
-let &statusline .= '%y[%{&l:fileencoding == "" ? &encoding : &l:fileencoding}:%{&fileformat}] '
-let &statusline .= '%t%{strlen(expand("%:h")) ? " (" . expand("%:h") . ") " : ""}'
-let &statusline .= '%m%r '
-let &statusline .= 'Line:%l/%L[%p%%] '
-let &statusline .= 'Col:%c [%b][0x%B]'
-let &statusline .= '%='
-let &statusline .= '%{SyntasticStatuslineFlag()} '
-let &statusline .= '%{FileSize()}'
 set laststatus=2
 
 autocmd InsertEnter * :set number
@@ -713,6 +699,9 @@ let g:Align_xstrlen=2
 
 "vimerl
 let erlang_show_errors = 0
+
+"python-syntax
+let python_highlight_all = 1
 
 "language
 set langmenu=en_US
