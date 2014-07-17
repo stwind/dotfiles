@@ -6,6 +6,10 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/base16-vim'
 Plugin 'jpo/vim-railscasts-theme'
@@ -13,7 +17,7 @@ Plugin 'othree/eregex.vim'
 Plugin 'othree/html5.vim'
 Plugin 'vim-scripts/IndentAnything'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
+"Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/neocomplcache.vim'
 Plugin 'Shougo/neosnippet.vim'
@@ -23,13 +27,12 @@ Plugin 'h1mesuke/unite-outline'
 Plugin 'Shougo/neomru.vim'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'jimenezrick/vimerl'
+Plugin 'eagletmt/ghcmod-vim'
 Plugin 'mkitt/tabline.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'vim-scripts/L9'
 Plugin 'edsono/vim-matchit'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
 Plugin 'sjl/gundo.vim'
 Plugin 'wincent/Command-T'
 Plugin 'hail2u/vim-css3-syntax'
@@ -172,7 +175,7 @@ autocmd BufReadPost *
 "respective filetype settings
 autocmd FileType javascript,ruby,yaml setlocal tabstop=2 | setlocal shiftwidth=2
 autocmd BufNewFile,BufRead *.dtl set filetype=htmldjango
-autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "=> key mappings
@@ -495,13 +498,10 @@ let NERDTreeWinSize = 38
 let NERDTreeIgnore=['\.beam$', '\.pyc$']
 
 "--------------------------------------------------
-"NerdCommenter
+"vim-commentary
 "--------------------------------------------------
-"comment style for F#
-let g:NERDCustomDelimiters = {
-    \   'fs': { 'left' : '//' },
-    \   'fsharp': { 'left' : '//' } 
-    \ }
+nmap <Leader>c<Space> gcc
+vmap <Leader>c<Space> gc
 
 "--------------------------------------------------
 "Gundo
