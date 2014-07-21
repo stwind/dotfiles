@@ -31,6 +31,8 @@ Plugin 'eagletmt/ghcmod-vim'
 Plugin 'mkitt/tabline.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'Valloric/MatchTagAlways'
+Plugin 't9md/vim-choosewin'
 Plugin 'vim-scripts/L9'
 Plugin 'edsono/vim-matchit'
 Plugin 'sjl/gundo.vim'
@@ -664,6 +666,11 @@ let g:neocomplcache_enable_underbar_completion = 0
 let g:neocomplcache_enable_ignore_case = 1
 let g:neocomplcache_enable_wildcard = 0
 let g:neocomplcache_manual_completion_start_length = 0
+"--------------------------------------------------
+"choosewin
+"--------------------------------------------------
+let g:choosewin_overlay_enable = 1
+nmap  -  <Plug>(choosewin)
 
 if !exists('g:neocomplcache_keyword_patterns')
     let g:neocomplcache_keyword_patterns = {}
