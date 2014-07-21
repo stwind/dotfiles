@@ -24,6 +24,7 @@ Plugin 'Shougo/neosnippet.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc'
 Plugin 'h1mesuke/unite-outline'
+Plugin 'matze/vim-move'
 Plugin 'Shougo/neomru.vim'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'jimenezrick/vimerl'
@@ -656,6 +657,10 @@ nnoremap <F8> :TagbarToggle<CR>
 "CtrlSF
 "--------------------------------------------------
 let g:ctrlsf_ackprg = 'ag'
+"--------------------------------------------------
+"vim-move
+"--------------------------------------------------
+let g:move_key_modifier = 'C'
 "--------------------------------------------------
 "neocomplcache
 "--------------------------------------------------
