@@ -37,7 +37,8 @@ Plugin 't9md/vim-quickhl'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/base16-vim'
 Plugin 'jpo/vim-railscasts-theme'
-Plugin 'matze/vim-move'
+Plugin 'mhinz/vim-signify'
+" Plugin 'matze/vim-move'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'jimenezrick/vimerl'
 Plugin 'eagletmt/ghcmod-vim'
@@ -592,7 +593,11 @@ nmap <Space>m <Plug>(quickhl-manual-this)
 xmap <Space>m <Plug>(quickhl-manual-this)
 nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
-
+"--------------------------------------------------
+"vim-signify
+"--------------------------------------------------
+nmap <Space>gj <plug>(signify-next-hunk)
+nmap <Space>gk <plug>(signify-prev-hunk)
 "--------------------------------------------------
 "sparkup
 "--------------------------------------------------
@@ -658,7 +663,7 @@ let g:ctrlsf_ackprg = 'ag'
 "--------------------------------------------------
 "vim-move
 "--------------------------------------------------
-let g:move_key_modifier = 'C'
+let g:move_key_modifier = 'A'
 "--------------------------------------------------
 "neocomplcache
 "--------------------------------------------------
