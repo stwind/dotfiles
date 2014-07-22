@@ -10,12 +10,16 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'chriskempson/base16-vim'
-Plugin 'jpo/vim-railscasts-theme'
 Plugin 'othree/eregex.vim'
 Plugin 'othree/html5.vim'
 Plugin 'vim-scripts/IndentAnything'
+Plugin 'vim-scripts/L9'
+"Plugin 'vim-scripts/argtextobj.vim'
+"Plugin 'vim-scripts/DirDiff.vim'
+Plugin 'vim-scripts/django.vim'
+Plugin 'vim-scripts/kwbdi.vim'
+"Plugin 'vim-scripts/Highlight-UnMatched-Brackets'
+Plugin 'vim-scripts/VisIncr'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
@@ -23,9 +27,17 @@ Plugin 'Shougo/neocomplcache.vim'
 Plugin 'Shougo/neosnippet.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc'
-Plugin 'h1mesuke/unite-outline'
-Plugin 'matze/vim-move'
 Plugin 'Shougo/neomru.vim'
+Plugin 'Shougo/unite-outline'
+Plugin 'Shougo/unite-session'
+"Bundle 'Shougo/vimfiler'
+Plugin 'justinmk/vim-sneak'
+Plugin 't9md/vim-choosewin'
+Plugin 't9md/vim-quickhl'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'chriskempson/base16-vim'
+Plugin 'jpo/vim-railscasts-theme'
+Plugin 'matze/vim-move'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'jimenezrick/vimerl'
 Plugin 'eagletmt/ghcmod-vim'
@@ -33,8 +45,6 @@ Plugin 'mkitt/tabline.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'Valloric/MatchTagAlways'
-Plugin 't9md/vim-choosewin'
-Plugin 'vim-scripts/L9'
 Plugin 'edsono/vim-matchit'
 Plugin 'sjl/gundo.vim'
 Plugin 'wincent/Command-T'
@@ -51,17 +61,10 @@ Plugin 'rhysd/clever-f.vim'
 "Plugin 'rstacruz/sparkup'
 Plugin 'bkad/CamelCaseMotion'
 Plugin 'mattn/emmet-vim'
-"Plugin 'vim-scripts/argtextobj.vim'
 Plugin 'michaeljsmith/vim-indent-object'
-Plugin 't9md/vim-quickhl'
-"Plugin 'vim-scripts/DirDiff.vim'
-Plugin 'vim-scripts/django.vim'
 Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'vim-scripts/kwbdi.vim'
-"Plugin 'kien/ctrlp.vim'
 Plugin 'ajf/puppet-vim'
-"Plugin 'vim-scripts/Highlight-UnMatched-Brackets'
 "Plugin 'thinca/vim-prettyprint'
 Plugin 'thinca/vim-visualstar'
 Plugin 'sjl/clam.vim'
@@ -69,10 +72,8 @@ Plugin 'peterhoeg/vim-tmux'
 Plugin 'nono/vim-handlebars'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'vim-scripts/VisIncr'
 Plugin 'Yggdroot/indentLine'
 Plugin 'dag/vim2hs'
-"Bundle 'Shougo/vimfiler'
 "Bundle 'gregsexton/gitv'
 
 call vundle#end() 
@@ -268,10 +269,6 @@ cmap () ()<LEFT>
 cmap {} {}<LEFT>
 cmap [] []<LEFT>
 
-"easily moving lines up and down
-vnoremap <C-S-Up> :move -2<CR>gv
-vnoremap <C-S-Down> :move '>+<CR>gv
-
 vnoremap > >gv
 vnoremap < <gv
 
@@ -305,7 +302,7 @@ inoremap <C-u> <C-g>u<C-u>
 inoremap <C-w> <C-g>u<C-w>
 
 "subsititute the word under cursor in the current buffers
-nnoremap <expr> s* ':%s/\<'.expand('<cword>').'\>/'
+" nnoremap <expr> s* ':%s/\<'.expand('<cword>').'\>/'
 
 "Yank from the cursor to the end of the line
 nnoremap Y y$
@@ -317,8 +314,7 @@ nnoremap c. q:k<CR>
 vnoremap z/ <ESC>/\%V
 vnoremap z? <ESC>?\%V
 
-"back to normal mode from insert mode
-"imap jj <ESC>
+" back to normal mode from insert mode
 imap jj <ESC>
 
 "toggle fold
@@ -531,7 +527,10 @@ let g:airline_right_alt_sep = '⮃'
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
-
+"--------------------------------------------------
+"Powerline
+"--------------------------------------------------
+let g:sneak#s_next = 1
 "--------------------------------------------------
 "clam.vim
 "--------------------------------------------------
@@ -558,7 +557,6 @@ nnoremap <Leader>uc :<C-u>Unite -buffer-name=files file_rec<CR>
 nnoremap <Leader>uf :<C-u>Unite -buffer-name=files file<CR>
 nnoremap <leader>ux :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <leader>uo :<C-u>Unite -buffer-name=outline -vertical -winwidth=50 -no-quit -no-start-insert outline<CR>
-nnoremap <leader>uh :<C-u>Unite -buffer-name=history -vertical -winwidth=35 history/command<CR>
 nnoremap <leader>ul :<C-u>Unite -buffer-name=line -vertical line<CR>
 
 autocmd Filetype unite nnoremap <silent> <buffer> <expr> s unite#do_action('split')
