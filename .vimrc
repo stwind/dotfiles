@@ -503,6 +503,7 @@ let NERDTreeIgnore=['\.beam$', '\.pyc$']
 "--------------------------------------------------
 nmap <Leader>c<Space> gcc
 vmap <Leader>c<Space> gc
+autocmd FileType cfg set commentstring=#\ %s
 
 "--------------------------------------------------
 "Gundo
