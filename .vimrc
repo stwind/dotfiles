@@ -107,6 +107,7 @@ set fileformat=unix
 set expandtab
 set autoindent
 set smartindent
+set noundofile
 set backspace=indent,eol,start
 set formatoptions=tcroqnlM1
 set list
