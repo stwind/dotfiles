@@ -23,8 +23,10 @@ Plugin 'vim-scripts/VisIncr'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
-Plugin 'Shougo/neocomplcache.vim'
+" Plugin 'Shougo/neocomplcache.vim'
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/neosnippet.vim'
+Plugin 'Shougo/neosnippet-snippets'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc'
 Plugin 'Shougo/neomru.vim'
@@ -551,11 +553,11 @@ let g:unite_source_directory_mru_time_format = ''
 let g:unite_enable_start_insert = 1
 let g:unite_session_path = '$VIM/_sessions'
 
-nnoremap <leader>be :<C-u>Unite -buffer-name=buf -no-start-insert buffer<CR>
-nnoremap <leader>bs :<C-u>Unite -buffer-name=buf -horizontal -default-action=above -no-start-insert buffer<CR>
-nnoremap <leader>bv :<C-u>Unite -buffer-name=buf -vertical -default-action=left -no-start-insert buffer<CR>
-nnoremap <leader>ur :<C-u>Unite -buffer-name=mru -vertical file_mru<CR>
-nnoremap <leader>ud :<C-u>Unite -buffer-name=dir -vertical -default-action=cd directory_mru<CR>
+nnoremap <leader>be :<C-u>Unite -buffer-name=buf -no-start-insert -ignorecase buffer<CR>
+nnoremap <leader>bs :<C-u>Unite -buffer-name=buf -horizontal -ignorecase -default-action=above -no-start-insert buffer<CR>
+nnoremap <leader>bv :<C-u>Unite -buffer-name=buf -vertical -ignorecase -default-action=left -no-start-insert buffer<CR>
+nnoremap <leader>ur :<C-u>Unite -buffer-name=mru -vertical -ignorecase file_mru<CR>
+nnoremap <leader>ud :<C-u>Unite -buffer-name=dir -vertical -ignorecase -default-action=cd directory_mru<CR>
 nnoremap <leader>up :<C-u>Unite -buffer-name=regs -no-start-insert register<CR>
 nnoremap <Leader>uc :<C-u>Unite -buffer-name=files file_rec<CR>
 nnoremap <Leader>uf :<C-u>Unite -buffer-name=files file<CR>
@@ -575,7 +577,7 @@ call unite#custom#profile('files', 'substitute_patterns', {
             \ 'subst' : '*\0*',
             \ 'priority' : 100,
             \ })
-call unite#custom#profile('files', 'ignorecase', 1)
+" call unite#custom#profile('files', 'ignorecase', 1)
 
 "--------------------------------------------------
 "eregex.vim
@@ -668,43 +670,53 @@ let g:ctrlsf_ackprg = 'ag'
 "--------------------------------------------------
 let g:move_key_modifier = 'A'
 "--------------------------------------------------
-"neocomplcache
-"--------------------------------------------------
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_camel_case_completion = 0
-let g:neocomplcache_enable_underbar_completion = 0
-let g:neocomplcache_enable_ignore_case = 1
-let g:neocomplcache_enable_wildcard = 0
-let g:neocomplcache_manual_completion_start_length = 0
-"--------------------------------------------------
 "choosewin
 "--------------------------------------------------
 let g:choosewin_overlay_enable = 1
 nmap  -  <Plug>(choosewin)
-
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
+"--------------------------------------------------
+"neocomplete
+"--------------------------------------------------
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#max_list = 20
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
 endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
 endif
+
+" if !exists('g:neocomplcache_keyword_patterns')
+"     let g:neocomplcache_keyword_patterns = {}
+" endif
+" let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
 if !has("mac")
     let g:neocomplcache_enable_auto_select = 1
 endif
 
-inoremap <expr> <C-h> neocomplcache#smart_close_popup().'\<C-h>'
+inoremap <expr> <C-h> neocomplete#smart_close_popup().'\<C-h>'
 inoremap <expr> <Tab> pumvisible() ? '\<C-n>' : '<Tab>'
-inoremap <expr> <C-Y> neocomplcache#cancel_popup()
-inoremap <expr> <CR> pumvisible() ? neocomplcache#close_popup() : '<CR>'
+inoremap <expr> <C-Y> neocomplete#cancel_popup()
+inoremap <expr> <CR> pumvisible() ? neocomplete#close_popup() : '<CR>'
 
-"inoremap <expr> <C-d> neocomplcache#undo_completion()
-inoremap <expr> <C-l> neocomplcache#complete_common_string()
-imap <C-k> <Plug>(neocomplcache_snippets_expand)
-smap <C-k> <Plug>(neocomplcache_snippets_expand)
+inoremap <expr> <C-l> neocomplete#complete_common_string()
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            \ "\<Plug>(neosnippet_expand_or_jump)"
+            \: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            \ "\<Plug>(neosnippet_expand_or_jump)"
+            \: "\<TAB>"
+
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,xhtml,xml,markdown setlocal omnifunc=htmlcomplete#CompleteTags
