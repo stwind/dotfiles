@@ -78,6 +78,7 @@ Plugin 'dyng/ctrlsf.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'Yggdroot/indentLine'
 Plugin 'dag/vim2hs'
+Plugin 'digitaltoad/vim-jade'
 "Bundle 'gregsexton/gitv'
 
 call vundle#end() 
@@ -714,9 +715,9 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
             \ "\<Plug>(neosnippet_expand_or_jump)"
             \: "\<TAB>"
 
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
+" if has('conceal')
+"   set conceallevel=2 concealcursor=i
+" endif
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,xhtml,xml,markdown setlocal omnifunc=htmlcomplete#CompleteTags
