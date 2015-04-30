@@ -36,6 +36,7 @@ Plugin 'Shougo/unite-session'
 Plugin 'justinmk/vim-sneak'
 Plugin 't9md/vim-choosewin'
 Plugin 't9md/vim-quickhl'
+Plugin 'derekwyatt/vim-scala'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/base16-vim'
 Plugin 'jpo/vim-railscasts-theme'
@@ -739,3 +740,8 @@ set langmenu=en_US
 let $LANG='en_US'
 "source $VIMRUNTIME/delmenu.vim
 "source $VIMRUNTIME/menu.vim
+
+" FIX: PluginUpdate => git pull: git-sh-setup: No such file or directory in MacVim (OK in non-GUI version of Vim)
+if has("gui_macvim")
+    set shell=/bin/bash\ -l
+endif

@@ -1,4 +1,5 @@
 set background=dark
+
 colorscheme solarized
 "colorscheme base16-paraiso
 " set guifont=InConsolata-dz\ for\ Powerline:h12
@@ -11,7 +12,7 @@ set linespace=0
 set visualbell
 
 set fuopt+=maxhorz
-" set fu
+set fu
 
 set cmdheight=1
 
