@@ -257,10 +257,10 @@ nmap <Tab> gT
 nmap \ gt
 if has('mac')
     nnoremap <silent> <expr> <D-Left> ':exec "tabm ' . string(tabpagenr() - 2 < 0 ? tabpagenr("$") : tabpagenr() - 2) . '"<CR>'
-    nnoremap <silent> <expr> <D-Right> ':exec "tabm ' . string(tabpagenr()) . '"<CR>'
+    nnoremap <silent> <expr> <D-Right> ':exec "tabm ' . string(tabpagenr() + 1) . '"<CR>'
 else
     nnoremap <silent> <expr> <C-Left> ':exec "tabm ' . string(tabpagenr() - 2 < 0 ? tabpagenr("$") : tabpagenr() - 2) . '"<CR>'
-    nnoremap <silent> <expr> <C-Right> ':exec "tabm ' . string(tabpagenr()) . '"<CR>'
+    nnoremap <silent> <expr> <C-Right> ':exec "tabm ' . string(tabpagenr() + 1) . '"<CR>'
 endif
 
 "switching between alternative buffers
