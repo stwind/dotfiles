@@ -638,6 +638,7 @@ set wildignore+=*.o,*.obj,*.git,*.beam,*.pyc
 "--------------------------------------------------
 let g:syntastic_enable_balloons = 0
 let g:syntastic_erlang_checkers = ['syntaxerl']
+let g:syntastic_ignore_files = ['.*\.scala$', '.*\.sbt$']
 
 "--------------------------------------------------
 "zencoding
