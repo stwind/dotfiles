@@ -626,7 +626,7 @@ vmap <Enter> <Plug>(EasyAlign)
 nnoremap <Leader>t :CommandT<CR>
 nnoremap <D-t> :CommandT<CR>
 let g:CommandTMatchWindowAtTop = 1
-set wildignore+=*.o,*.obj,*.git,*.beam,*.pyc
+set wildignore+=*.o,*.obj,*.git,*.beam,*.pyc,*.class
 
 "--------------------------------------------------
 "surround.vim

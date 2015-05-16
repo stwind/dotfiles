@@ -40,6 +40,9 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/gocode/bin:$HOME/.prog/bin:$HOME/.cabal/bin:/Users/stwind/.rbenv/shims:/Users/stwind/.tmuxifier/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/texbin:/opt/local/bin:/usr/local/git/bin
 export PYTHONPATH=/Library/Python/2.7/site-packages:/usr/local/Cellar/py2cairo/1.10.0/lib/python2.7/site-packages:$PYTHONPATH
 
+export SCALA_HOME=~/.svm/current/rt
+export PATH=$SCALA_HOME/bin:$PATH
+
 export LC_CTYPE="en_GB.UTF-8"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8

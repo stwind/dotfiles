@@ -12,6 +12,7 @@
 	name = stwind
 [core]
 	editor = /usr/bin/vim
+	excludesfile = /Users/stwind/.gitignore_global
 [github]
 	user = stwind
 [difftool "sourcetree"]
