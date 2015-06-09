@@ -96,3 +96,4 @@ source $(which virtualenvwrapper.sh)
 source $(brew --prefix nvm)/nvm.sh
 
 export GOPATH=$HOME/gocode
+eval "$(rbenv init -)"
