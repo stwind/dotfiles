@@ -2,10 +2,8 @@ set background=dark
 
 colorscheme solarized
 "colorscheme base16-paraiso
-" set guifont=InConsolata-dz\ for\ Powerline:h12
-" set guifont=Menlo\ for\ Powerline:h12
-set guifont=Droid\ Sans\ Mono\ For\ Powerline:h12
-"set guifont=Source\ Code\ Pro\ For\ Powerline:h12
+set guifont=Droid\ Sans\ Mono\ Slashed\ For\ Powerline:h12
+" set guifont=Meslo\ for\ Powerline:h12
 "set linespace=-2
 set linespace=0
 

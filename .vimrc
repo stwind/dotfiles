@@ -47,6 +47,7 @@ Plugin 'jimenezrick/vimerl'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'mkitt/tabline.vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'tfnico/vim-gradle'
 Plugin 'mxw/vim-jsx'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'Valloric/MatchTagAlways'
@@ -137,7 +138,7 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
-set key=
+" set key=
 set virtualedit+=block
 set gdefault
 set sessionoptions=blank,buffers,curdir,folds,globals,localoptions,options,resize,tabpages,winsize
@@ -519,27 +520,12 @@ let g:gundo_preview_bottom = 1
 let g:gundo_right = 1
 
 "--------------------------------------------------
-"Powerline
-"--------------------------------------------------
-let g:Powerline_symbols='fancy'
-
-"--------------------------------------------------
 "Airline
 "--------------------------------------------------
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-let g:airline_symbols.branch = '⭠'
-let g:airline_symbols.readonly = '⭤'
-let g:airline_symbols.linenr = '⭡'
-"--------------------------------------------------
-"Powerline
-"--------------------------------------------------
-let g:sneak#s_next = 1
+let g:airline_powerline_fonts = 1
 "--------------------------------------------------
 "clam.vim
 "--------------------------------------------------
