@@ -1,10 +1,10 @@
 set background=dark
 
 colorscheme solarized
-"colorscheme base16-paraiso
-set guifont=Droid\ Sans\ Mono\ Slashed\ For\ Powerline:h12
-" set guifont=Meslo\ for\ Powerline:h12
-"set linespace=-2
+" colorscheme base16-paraiso
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
+" set guifont=Droid\ Sans\ Mono\ Slashed\ For\ Powerline:h12
+" set guifont=Meslo\ for\ Powerline:h13
 set linespace=0
 
 set visualbell
