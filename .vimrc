@@ -258,11 +258,11 @@ nnoremap cp Pjdd
 nmap <Tab> gT
 nmap \ gt
 if has('mac')
-    nnoremap <silent> <expr> <D-Left> ':exec "tabm ' . string(tabpagenr() - 2 < 0 ? tabpagenr("$") : tabpagenr() - 2) . '"<CR>'
-    nnoremap <silent> <expr> <D-Right> ':exec "tabm ' . string(tabpagenr() + 1) . '"<CR>'
+    nnoremap <silent><expr> <D-Left> ':exec "tabm ' . string(tabpagenr() - 2 < 0 ? tabpagenr("$") : tabpagenr() - 2) . '"<CR>'
+    nnoremap <silent><expr> <D-Right> ':exec "tabm ' . string(tabpagenr() + 1) . '"<CR>'
 else
-    nnoremap <silent> <expr> <C-Left> ':exec "tabm ' . string(tabpagenr() - 2 < 0 ? tabpagenr("$") : tabpagenr() - 2) . '"<CR>'
-    nnoremap <silent> <expr> <C-Right> ':exec "tabm ' . string(tabpagenr() + 1) . '"<CR>'
+    nnoremap <silent><expr> <C-Left> ':exec "tabm ' . string(tabpagenr() - 2 < 0 ? tabpagenr("$") : tabpagenr() - 2) . '"<CR>'
+    nnoremap <silent><expr> <C-Right> ':exec "tabm ' . string(tabpagenr() + 1) . '"<CR>'
 endif
 
 "switching between alternative buffers
@@ -512,8 +512,8 @@ let NERDTreeIgnore=['\.beam$', '\.pyc$']
 function! s:vimfiler_my_settings()
     nmap <buffer> p <Plug>(vimfiler_quick_look)
 
-    setlocal nornu
-    setlocal nonu
+    setlocal nonumber
+    setlocal norelativenumber
     nunmap <buffer> \
     nunmap <buffer> <Tab>
     nnoremap <silent><buffer><expr> t vimfiler#do_action('tabopen')
@@ -522,9 +522,9 @@ endfunction
 call vimfiler#custom#profile('default', 'context', {
             \ 'split' : 1,
             \ 'status' : 1,
-            \ 'explorer' : 1,
+            \ 'parent' : 0,
+            \ 'toggle' : 1,
             \ 'winwidth': 38,
-            \ 'toggle': 1,
             \ 'direction': 'belowright',
             \ 'auto-expand' : 1
             \ })
@@ -535,12 +535,13 @@ let g:vimfiler_tree_opened_icon = '▾'
 let g:vimfiler_tree_closed_icon = '▸'
 let g:vimfiler_marked_file_icon = '✓'
 let g:vimfiler_readonly_file_icon = '✗'
+let g:vimfiler_tree_indentation = 2
 let g:vimfiler_time_format = '%m-%d-%y %H:%M:%S'
 let g:vimfiler_expand_jump_to_first_child = 0
-let g:vimfiler_ignore_pattern = '\.git\|\.DS_Store\|\.pyc\|\.beam'
+let g:vimfiler_ignore_pattern = '\.git$\|\.DS_Store\|\.pyc\|\.beam'
 
 autocmd FileType vimfiler call s:vimfiler_my_settings()
-nnoremap <silent> <F5> :VimFilerExplorer<CR>
+nnoremap <silent><expr> <F2> ':exec "VimFilerBufferDir -explorer -buffer-name=' . string(tabpagenr()) . '"<CR>'
 "--------------------------------------------------
 "vim-commentary
 "--------------------------------------------------
