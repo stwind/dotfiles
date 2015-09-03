@@ -10,6 +10,7 @@ set linespace=0
 set visualbell
 
 set fuopt+=maxhorz
+set fuopt+=maxvert
 " set fu
 
 set cmdheight=1

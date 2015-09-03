@@ -20,8 +20,7 @@ Plugin 'vim-scripts/django.vim'
 Plugin 'vim-scripts/kwbdi.vim'
 "Plugin 'vim-scripts/Highlight-UnMatched-Brackets'
 Plugin 'vim-scripts/VisIncr'
-Plugin 'scrooloose/nerdtree'
-"Plugin 'scrooloose/nerdcommenter'
+" Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 " Plugin 'Shougo/neocomplcache.vim'
 Plugin 'Shougo/neocomplete.vim'
@@ -32,8 +31,9 @@ Plugin 'Shougo/vimproc'
 Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/unite-outline'
 Plugin 'Shougo/unite-session'
-"Bundle 'Shougo/vimfiler'
+Bundle 'Shougo/vimfiler'
 Plugin 'justinmk/vim-sneak'
+Plugin 'beyondmarc/glsl.vim'
 Plugin 't9md/vim-choosewin'
 Plugin 't9md/vim-quickhl'
 Plugin 'derekwyatt/vim-scala'
@@ -43,6 +43,8 @@ Plugin 'mhinz/vim-signify'
 " Plugin 'matze/vim-move'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'jimenezrick/vimerl'
+Plugin 'vim-erlang/vim-erlang-omnicomplete'
+Plugin 'guns/vim-clojure-static'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'mkitt/tabline.vim'
 Plugin 'pangloss/vim-javascript'
@@ -53,6 +55,7 @@ Plugin 'Valloric/MatchTagAlways'
 Plugin 'edsono/vim-matchit'
 Plugin 'sjl/gundo.vim'
 Plugin 'wincent/Command-T'
+Plugin 'guns/vim-sexp'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'kana/vim-smartinput'
 Plugin 'kana/vim-smartchr'
@@ -98,6 +101,7 @@ set nowritebackup
 set noswapfile
 set nowrap
 set relativenumber
+set number
 set showcmd
 set cmdheight=1
 set showmode
@@ -173,9 +177,6 @@ function! FileSize()
 endfunction
 
 set laststatus=2
-
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
 
 "This autocommand jumps to the last known position in a file
 "just after opening it, if the '" mark is set: >
@@ -496,14 +497,50 @@ command! W w !sudo tee % > /dev/null
 "--------------------------------------------------
 "NERDTree
 "--------------------------------------------------
-nnoremap <silent> <F5> :NERDTreeToggle<CR>
-nnoremap <silent> <Leader>nt :NERDTree<CR>
-nnoremap <silent> <Leader>nf :NERDTreeFind<CR>
+" nnoremap <silent> <F5> :NERDTreeToggle<CR>
+" nnoremap <silent> <Leader>nt :NERDTree<CR>
+" nnoremap <silent> <Leader>nf :NERDTreeFind<CR>
 let NERDTreeWinPos = "right"
 let NERDTreeMinimalUI = 1
 let NERDTreeWinSize = 38
 let NERDTreeIgnore=['\.beam$', '\.pyc$']
 
+"--------------------------------------------------
+"VimFiler
+"--------------------------------------------------
+
+function! s:vimfiler_my_settings()
+    nmap <buffer> p <Plug>(vimfiler_quick_look)
+
+    setlocal nornu
+    setlocal nonu
+    nunmap <buffer> \
+    nunmap <buffer> <Tab>
+    nnoremap <silent><buffer><expr> t vimfiler#do_action('tabopen')
+endfunction
+
+call vimfiler#custom#profile('default', 'context', {
+            \ 'split' : 1,
+            \ 'status' : 1,
+            \ 'explorer' : 1,
+            \ 'winwidth': 38,
+            \ 'toggle': 1,
+            \ 'direction': 'belowright',
+            \ 'auto-expand' : 1
+            \ })
+
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_tree_leaf_icon = ''
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
+let g:vimfiler_marked_file_icon = '✓'
+let g:vimfiler_readonly_file_icon = '✗'
+let g:vimfiler_time_format = '%m-%d-%y %H:%M:%S'
+let g:vimfiler_expand_jump_to_first_child = 0
+let g:vimfiler_ignore_pattern = '\.git\|\.DS_Store\|\.pyc\|\.beam'
+
+autocmd FileType vimfiler call s:vimfiler_my_settings()
+nnoremap <silent> <F5> :VimFilerExplorer<CR>
 "--------------------------------------------------
 "vim-commentary
 "--------------------------------------------------
@@ -525,6 +562,7 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_powerline_fonts = 1
+  let g:airline#extensions#whitespace#checks = [ 'indent' ]
 "--------------------------------------------------
 "clam.vim
 "--------------------------------------------------
@@ -533,11 +571,11 @@ nnoremap ! :Clam<space>
 "--------------------------------------------------
 "Unite
 "--------------------------------------------------
-let g:unite_source_file_mru_limit = 300
-let g:unite_source_file_mru_time_format= ''
-let g:unite_source_file_mru_filename_format = ':.'
-let g:unite_source_directory_mru_limit = 200
-let g:unite_source_directory_mru_time_format = ''
+let g:neomru#file_mru_limit = 300
+let g:neomru#time_format = ''
+let g:neomru#filename_format = ':.'
+let g:neomru#directory_mru_limit = 200
+" let g:unite_source_directory_mru_time_format = ''
 let g:unite_enable_start_insert = 1
 let g:unite_session_path = '$VIM/_sessions'
 
@@ -558,14 +596,13 @@ autocmd Filetype unite nnoremap <silent> <buffer> <expr> v unite#do_action('vspl
 autocmd Filetype unite nnoremap <silent> <buffer> <expr> t unite#do_action('tabopen')
 autocmd Filetype unite inoremap <silent> <buffer> jj <ESC>0
 
-"call unite#set_buffer_name_option('files', 'smartcase', '0')
-
 call unite#custom#profile('files', 'substitute_patterns', {
             \ 'pattern' : '^.\+[^~.*]*',
             \ 'subst' : '*\0*',
             \ 'priority' : 100,
+            \ 'ignorecase' : 1,
+            \ 'smartcase' : 1
             \ })
-" call unite#custom#profile('files', 'ignorecase', 1)
 
 "--------------------------------------------------
 "eregex.vim
@@ -591,11 +628,6 @@ xmap <Space>M <Plug>(quickhl-manual-reset)
 "--------------------------------------------------
 nmap <Space>gj <plug>(signify-next-hunk)
 nmap <Space>gk <plug>(signify-prev-hunk)
-"--------------------------------------------------
-"sparkup
-"--------------------------------------------------
-"let g:sparkup = '~/.vim/bundle/sparkup/vim/ftplugin/html/sparkup.py'
-"autocmd FileType html,xhtml,xml,xaml source ~/.vim/bundle/sparkup/vim/ftplugin/html/sparkup.vim
 
 "--------------------------------------------------
 "fugitive.vim
@@ -606,6 +638,10 @@ nnoremap <Leader>gs :Gstatus<CR>
 "EasyAlign
 "--------------------------------------------------
 vmap <Enter> <Plug>(EasyAlign)
+"--------------------------------------------------
+"indentLine
+"--------------------------------------------------
+let g:indentLine_faster = 1
 "--------------------------------------------------
 "Comman-T
 "--------------------------------------------------

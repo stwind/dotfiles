@@ -58,6 +58,7 @@ genpasswd() {
 
 source $(which virtualenvwrapper.sh)
 source $(brew --prefix nvm)/nvm.sh
+source $(brew --prefix)/lib/erlang/activate
 
 export GOPATH=$HOME/gocode
 eval "$(rbenv init -)"
