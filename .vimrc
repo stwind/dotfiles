@@ -517,6 +517,8 @@ function! s:vimfiler_my_settings()
     nunmap <buffer> \
     nunmap <buffer> <Tab>
     nnoremap <silent><buffer><expr> t vimfiler#do_action('tabopen')
+    nnoremap <silent><buffer><expr> v vimfiler#do_switch_action('vsplit')
+    nnoremap <silent><buffer><expr> s vimfiler#do_switch_action('split')
 endfunction
 
 call vimfiler#custom#profile('default', 'context', {
@@ -644,7 +646,7 @@ vmap <Enter> <Plug>(EasyAlign)
 "--------------------------------------------------
 let g:indentLine_faster = 1
 "--------------------------------------------------
-"Comman-T
+"Command-T
 "--------------------------------------------------
 nnoremap <Leader>t :CommandT<CR>
 nnoremap <D-t> :CommandT<CR>

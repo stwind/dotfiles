@@ -3,11 +3,15 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-export PATH=$HOME/gocode/bin:$HOME/.prog/bin:$HOME/.cabal/bin:/Users/stwind/.rbenv/shims:/Users/stwind/.tmuxifier/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/texbin:/opt/local/bin:/usr/local/git/bin
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin:/opt/local/bin
+export PATH=$HOME/.tmuxifier/bin:$PATH
+export PATH=$HOME/gocode/bin:$PATH
+
+export SCALA_HOME=$HOME/.svm/current/rt
+export PATH=$SCALA_HOME/bin:$PATH
+
 export PYTHONPATH=/Library/Python/2.7/site-packages:/usr/local/Cellar/py2cairo/1.10.0/lib/python2.7/site-packages:$PYTHONPATH
 
-export SCALA_HOME=~/.svm/current/rt
-export PATH=$SCALA_HOME/bin:$PATH
 
 # export LC_CTYPE="en_GB.UTF-8"
 # export LANG=en_US.UTF-8
@@ -52,8 +56,12 @@ function mux {
 
 disable r
 
-genpasswd() { 
+function genpasswd() { 
     pwgen -Bcyns $1 1 | pbc ; echo Has been copied to clipboard
+}
+
+function cl() {
+    cd $1 && ll
 }
 
 source $(which virtualenvwrapper.sh)
