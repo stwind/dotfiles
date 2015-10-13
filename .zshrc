@@ -33,8 +33,6 @@ export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='0;33'
 export CLICOLOR=1 
 
-# export PROMPT_COMMAND='echo -ne "\\033]0;`basename ${PWD}`"; echo -ne "\\007"'
-
 export EDITOR="vim"
 
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig
