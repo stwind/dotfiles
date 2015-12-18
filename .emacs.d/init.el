@@ -4,6 +4,8 @@
 (setq delete-auto-save-files t)
 (setq create-lockfiles nil)
 
+(setq debug-on-error t)
+
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (require 'package)
@@ -64,6 +66,10 @@
     yaml-mode
     ansible
     dockerfile-mode
+    terraform-mode
+    hcl-mode
+    coffee-mode
+    glsl-mode
     ) "a list of packages to ensure are installed at launch.")
 
 (defun packages-installed-p ()
@@ -96,6 +102,8 @@
       scroll-step 1
       scroll-conservatively 10000
       scroll-preserve-screen-position 1)
+
+(setq vc-follow-symlinks t)
 
 (require 'helm)
 (require 'helm-config)
@@ -169,12 +177,14 @@
  '(cider-cljs-repl
  "(do (require 'weasel.repl.websocket) (cemerick.piggieback/cljs-repl (weasel.repl.websocket/repl-env :ip \"127.0.0.1\" :port 9001)))")
  '(cider-repl-use-pretty-printing t)
+ '(cider-show-error-buffer nil)
  '(git-gutter:added-sign "+")
  '(git-gutter:deleted-sign "-")
  '(git-gutter:modified-sign "!")
  '(git-gutter:update-interval 2)
  '(js2-basic-offset 2)
- '(js2-bounce-indent-p t))
+ '(js2-bounce-indent-p t)
+ '(safe-local-variable-values (quote ((no-byte-compile t)))))
 
 (set-face-foreground 'git-gutter:modified "blue")
 (set-face-foreground 'git-gutter:added "green")
@@ -359,6 +369,16 @@
 ;; (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
 (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
 
+(define-clojure-indent
+  (defroutes 'defun)
+  (GET 2)
+  (POST 2)
+  (PUT 2)
+  (DELETE 2)
+  (HEAD 2)
+  (ANY 2)
+  (context 2))
+
 ;; yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)
@@ -407,3 +427,34 @@
 (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
 
+(add-to-list 'auto-mode-alist '("\\.nomad\\'" . hcl-mode))
+
+(defun describe-foo-at-point ()
+  "Show the documentation of the Elisp function and variable near point.
+	This checks in turn:
+	-- for a function name where point is
+	-- for a variable name where point is
+	-- for a surrounding function call
+	"
+  (interactive)
+  (let (sym)
+    ;; sigh, function-at-point is too clever.  we want only the first half.
+    (cond ((setq sym (ignore-errors
+                       (with-syntax-table emacs-lisp-mode-syntax-table
+                         (save-excursion
+                           (or (not (zerop (skip-syntax-backward "_w")))
+                               (eq (char-syntax (char-after (point))) ?w)
+                               (eq (char-syntax (char-after (point))) ?_)
+                               (forward-sexp -1))
+                           (skip-chars-forward "`'")
+                           (let ((obj (read (current-buffer))))
+                             (and (symbolp obj) (fboundp obj) obj))))))
+           (describe-function sym))
+          ((setq sym (variable-at-point)) (describe-variable sym))
+          ;; now let it operate fully -- i.e. also check the
+          ;; surrounding sexp for a function call.
+          ((setq sym (function-at-point)) (describe-function sym)))))
+
+(define-key emacs-lisp-mode-map [(f1)] 'describe-foo-at-point)
+(define-key emacs-lisp-mode-map [(control f1)] 'describe-function)
+(define-key emacs-lisp-mode-map [(shift f1)] 'describe-variable)

@@ -1,7 +1,7 @@
 {:user  {:dependencies [[pjstadig/humane-test-output "0.7.0"]
                         [aprint "0.1.3"]
                         ;; [spyscope "0.1.5"]
-                        ; [org.clojure/tools.namespace "0.2.11"]
+                        [org.clojure/tools.namespace "0.2.11"]
                         [org.clojure/java.classpath "0.2.2"]
                         ;; [alembic "0.3.2"]
                         [im.chit/vinyasa "0.4.2"]
@@ -17,8 +17,10 @@
                       (inject/in
 
                        clojure.core >
+                       [clojure.tools.namespace.repl refresh]
                        [clojure.java.shell sh]
-                       [aprint.core aprint])]
+                       [aprint.core aprint]
+                       [clojure.test run-tests])]
          :plugins  [[venantius/ultra  "0.3.4"]
                     [lein-pprint "1.1.2"]
                     [lein-ancient "0.6.7"]

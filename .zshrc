@@ -63,8 +63,12 @@ function cl() {
 }
 
 source $(which virtualenvwrapper.sh)
-source $(brew --prefix nvm)/nvm.sh
 source $(brew --prefix)/lib/erlang/activate
 
 export GOPATH=$HOME/gocode
 eval "$(rbenv init -)"
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+export NVM_DIR="/Users/stwind/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+. /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
