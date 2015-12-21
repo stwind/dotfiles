@@ -3,21 +3,22 @@
                        [org.clojure/java.classpath "0.2.2"]
                        [org.clojure/tools.namespace "0.2.11"]
                        [org.clojure/tools.nrepl "0.2.12"]
-                       ;; [alembic "0.3.2"]
-                       [im.chit/vinyasa "0.4.2"]
-                       [codox "0.8.13"]
-                       [debugger "0.1.7"]]
+                       [im.chit/vinyasa "0.4.2"]]
         :injections [;; (require 'spyscope.core)
                      (require '[clojure.java.classpath :as cp])
                      (require '[vinyasa.inject :as inject])
 
                      (inject/in
+                      [vinyasa.inject :refer [inject [in inject-in]]]
+                      [clojure.tools.namespace.repl refresh]
+                      [clojure.test run-tests]
+
+                      clojure.core
+                      [vinyasa.reflection .> .? .* .% .%> .& .>ns .>var]
 
                       clojure.core >
-                      [clojure.tools.namespace.repl refresh]
                       [clojure.java.shell sh]
-                      [aprint.core aprint]
-                      [clojure.test run-tests])]
+                      [aprint.core aprint])]
         :plugins  [[venantius/ultra  "0.4.0"]
                    [lein-pprint "1.1.2"]
                    [lein-ancient "0.6.7"]
