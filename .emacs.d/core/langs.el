@@ -81,3 +81,21 @@
 
 (install-pkg 'erlang-mode)
 ;(install-pkg 'edts)
+
+(install-pkg 'json-mode)
+
+(defun setup-js2-mode ()
+  (setq js2-basic-offset 2)
+  (setq js2-bounce-indent-p t)
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  (add-to-list 'interpreter-mode-alist '("node" . js2-mode)))
+
+(install-pkg 'js2-mode)
+
+(install-pkg 'org-mode)
+
+(defun setup-ox-reveal ()
+  (require 'ox-reveal)
+  (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0"))
+
+(install-pkg 'ox-reveal)

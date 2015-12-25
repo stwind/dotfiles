@@ -1,4 +1,4 @@
-{:user {:dependencies [[aprint "0.1.3"]
+{:user {:dependencies [[fipp "0.6.3"]
                        ;; [spyscope "0.1.5"]
                        [org.clojure/java.classpath "0.2.2"]
                        [org.clojure/tools.namespace "0.2.11"]
@@ -17,8 +17,7 @@
                       [vinyasa.reflection .> .? .* .% .%> .& .>ns .>var]
 
                       clojure.core >
-                      [clojure.java.shell sh]
-                      [aprint.core aprint])]
+                      [clojure.java.shell sh])]
         :plugins  [[venantius/ultra  "0.4.0"]
                    [lein-pprint "1.1.2"]
                    [lein-ancient "0.6.7"]

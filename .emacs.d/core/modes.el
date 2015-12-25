@@ -138,7 +138,7 @@
   (global-aggressive-indent-mode 1)
   (add-to-list 'aggressive-indent-excluded-modes 'html-mode))
 
-(install-pkg 'aggressive-indent)
+;(install-pkg 'aggressive-indent)
 
 (defun setup-whitespace-cleanup-mode ()
   (setq global-whitespace-cleanup-mode t))

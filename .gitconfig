@@ -23,5 +23,3 @@
 	trustExitCode = true
 [push]
 	default = matching
-[http]
-    proxy = cat.3.14159.in:31048
