@@ -82,7 +82,7 @@
 (defun setup-evil-nerd-commenter ()
   (evilnc-default-hotkeys))
 
-                                        ;(install-pkg 'evil-nerd-commenter)
+(install-pkg 'evil-nerd-commenter 'elpa)
 
 (defun setup-ace-window ()
   (setq aw-background nil)

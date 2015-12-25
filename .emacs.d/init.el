@@ -43,21 +43,20 @@
 (setq el-get-user-package-directory "~/.emacs.d")
 
 (defun load-module (module)
-  ;; ensure el-get-sources is empty
   (setq el-get-sources nil)
-  ;; enable git shallow clone to save time and bandwidth
   (setq el-get-git-shallow-clone t)
   (require module)
   (el-get 'sync (mapcar 'el-get-source-name el-get-sources)))
 
-(defun install-pkg (el-get-package)
-  (let ((package-setup-func
-         (intern (concat "setup-" (el-get-as-string el-get-package)))))
-    (if (fboundp package-setup-func)
-        (add-to-list 'el-get-sources
-                     `(:name ,el-get-package :after (progn (,package-setup-func))))
-      (add-to-list 'el-get-sources
-                   `(:name ,el-get-package)))))
+(defun install-pkg (pkg-name &optional pkg-type)
+  (let* ((package-setup-func
+          (intern (concat "setup-" (el-get-as-string pkg-name))))
+         (pkg (apply #'append (list `(:name ,pkg-name)
+                                    (when (fboundp package-setup-func)
+                                      `(:after (progn (,package-setup-func))))
+                                    (when pkg-type
+                                      `(:type ,pkg-type))))))
+    (add-to-list 'el-get-sources pkg)))
 
 (add-to-list 'load-path "~/.emacs.d/core/")
 
