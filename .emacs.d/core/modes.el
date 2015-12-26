@@ -138,7 +138,7 @@
   (global-aggressive-indent-mode 1)
   (add-to-list 'aggressive-indent-excluded-modes 'html-mode))
 
-;(install-pkg 'aggressive-indent)
+;; (install-pkg 'aggressive-indent)
 
 (defun setup-whitespace-cleanup-mode ()
   (setq global-whitespace-cleanup-mode t))
@@ -259,3 +259,14 @@
 (install-pkg 'smartparens)
 
 (install-pkg 'git-modes)
+
+(defun setup-flycheck ()
+  (add-hook 'prog-mode-hook 'flycheck-mode)
+  (add-hook 'after-init-hook #'global-flycheck-mode))
+
+(install-pkg 'flycheck 'elpa)
+
+(defun setup-flycheck-pos-tip ()
+  (with-eval-after-load 'flycheck (flycheck-pos-tip-mode)))
+
+;; (install-pkg 'flycheck-pos-tip)

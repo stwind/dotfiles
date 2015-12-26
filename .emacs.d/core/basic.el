@@ -150,3 +150,7 @@
 (define-key emacs-lisp-mode-map [(f1)] 'describe-foo-at-point)
 (define-key emacs-lisp-mode-map [(control f1)] 'describe-function)
 (define-key emacs-lisp-mode-map [(shift f1)] 'describe-variable)
+
+(setq-default save-place t)
+(setq save-place-file (concat user-emacs-directory ".saved-places"))
+(require 'saveplace)

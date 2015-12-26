@@ -58,6 +58,12 @@
 
 (install-pkg 'ac-cider)
 
+(defun setup-flycheck-clojure ()
+  (eval-after-load 'flycheck '(flycheck-clojure-setup))
+  (add-hook 'after-init-hook #'global-flycheck-mode))
+
+;; (install-pkg 'flycheck-clojure)
+
 (install-pkg 'glsl-mode)
 
 (install-pkg 'yaml-mode)
@@ -80,7 +86,7 @@
   (add-hook 'after-init-hook '(lambda () (require 'edts-start))))
 
 (install-pkg 'erlang-mode)
-;(install-pkg 'edts)
+(install-pkg 'edts 'elpa)
 
 (install-pkg 'json-mode)
 

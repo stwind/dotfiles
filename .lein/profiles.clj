@@ -3,7 +3,8 @@
                        [org.clojure/java.classpath "0.2.2"]
                        [org.clojure/tools.namespace "0.2.11"]
                        [org.clojure/tools.nrepl "0.2.12"]
-                       [im.chit/vinyasa "0.4.2"]]
+                       [im.chit/vinyasa "0.4.2"]
+                       #_[acyclic/squiggly-clojure "0.1.4"]]
         :injections [;; (require 'spyscope.core)
                      (require '[clojure.java.classpath :as cp])
                      (require '[vinyasa.inject :as inject])
