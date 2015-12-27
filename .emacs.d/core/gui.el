@@ -12,7 +12,6 @@
 
 ;; show parenthesis match
 (show-paren-mode 1)
-(setq show-paren-style 'expression)
 
 ;; Toggle line highlighting in all buffers
 (global-hl-line-mode t)
@@ -43,7 +42,7 @@
 (setq visible-bell nil)
 
 (when (window-system)
-  (set-default-font "Fira Code"))
+  (set-frame-font "Fira Code"))
 (let ((alist '((33 . ".\\(?:\\(?:==\\)\\|[!=]\\)")
                (35 . ".\\(?:[(?[_{]\\)")
                (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
@@ -81,9 +80,24 @@
     (setq solarized-termcolors 256)
     (setq solarized-contrast 'high)
     (setq solarized-visibility 'high)
-    (load-theme 'solarized-light t)))
+    (load-theme 'solarized-dark t)))
 
-(install-pkg 'solarized-theme)
+;; (install-pkg 'solarized-theme)
+
+(defun setup-monokai-theme ()
+  (load-theme 'monokai t))
+
+(install-pkg 'monokai-theme)
+
+(defun setup-ample-theme ()
+  (load-theme 'ample t))
+
+;; (install-pkg 'ample-theme)
+
+(defun setup-color-theme-sanityinc-tomorrow ()
+  (color-theme-sanityinc-tomorrow-night))
+
+;; (install-pkg 'color-theme-sanityinc-tomorrow)
 
 (defun setup-smart-mode-line ()
   (setq sml/theme 'respectful)

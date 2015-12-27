@@ -110,9 +110,12 @@
   (setq git-gutter:deleted-sign "-")
   (setq git-gutter:modified-sign "!")
   (setq git-gutter:update-interval 2)
-  (set-face-foreground 'git-gutter:modified "blue")
+  (set-face-foreground 'git-gutter:modified "cyan")
   (set-face-foreground 'git-gutter:added "green")
-  (set-face-foreground 'git-gutter:deleted "red"))
+  (set-face-foreground 'git-gutter:deleted "red")
+  (set-face-background 'git-gutter:modified nil)
+  (set-face-background 'git-gutter:added nil)
+  (set-face-background 'git-gutter:deleted nil))
 
 (install-pkg 'git-gutter)
 

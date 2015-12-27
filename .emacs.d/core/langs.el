@@ -86,17 +86,48 @@
   (add-hook 'after-init-hook '(lambda () (require 'edts-start))))
 
 (install-pkg 'erlang-mode)
-(install-pkg 'edts 'elpa)
-
-(install-pkg 'json-mode)
+;; (install-pkg 'edts 'elpa)
 
 (defun setup-js2-mode ()
   (setq js2-basic-offset 2)
-  (setq js2-bounce-indent-p t)
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-  (add-to-list 'interpreter-mode-alist '("node" . js2-mode)))
+  (setq js2-bounce-indent-p t))
 
 (install-pkg 'js2-mode)
+
+(defun setup-js3-mode ()
+  (setq js3-auto-indent-p t
+        js3-curly-indent-offset 0
+        js3-enter-indents-newline t
+        js3-expr-indent-offset 2
+        js3-indent-on-enter-key t
+        js3-lazy-commas t
+        js3-lazy-dots t
+        js3-lazy-operators t
+        js3-paren-indent-offset 2
+        js3-square-indent-offset 4))
+
+(install-pkg 'js3-mode)
+
+(defun setup-json-reformat ()
+  (setq json-reformat:indent-width 2))
+
+(install-pkg 'json-reformat)
+
+(defun setup-json-snatcher ()
+  (defun js-mode-bindings ()
+    "Sets a hotkey for using the json-snatcher plugin"
+    (when (string-match  "\\.json$" (buffer-name))
+      (local-set-key (kbd "C-c C-g") 'jsons-print-path)))
+  (add-hook 'js-mode-hook 'js-mode-bindings)
+  (add-hook 'js2-mode-hook 'js-mode-bindings)
+  (add-hook 'js3-mode-hook 'js-mode-bindings))
+
+(install-pkg 'json-snatcher)
+
+(defun setup-json-mode ()
+  (setq js-indent-level 2))
+
+(install-pkg 'json-mode)
 
 (install-pkg 'org-mode)
 
