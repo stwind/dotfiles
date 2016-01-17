@@ -80,7 +80,7 @@
     (setq solarized-termcolors 256)
     (setq solarized-contrast 'high)
     (setq solarized-visibility 'high)
-    (load-theme 'solarized-dark t)))
+    (load-theme 'solarized-light t)))
 
 ;; (install-pkg 'solarized-theme)
 
@@ -89,15 +89,24 @@
 
 (install-pkg 'monokai-theme)
 
-(defun setup-ample-theme ()
-  (load-theme 'ample t))
+(defun setup-color-theme-almost-monokai ()
+  (color-theme-almost-monokai))
 
-;; (install-pkg 'ample-theme)
+;; (install-pkg 'color-theme-almost-monokai)
 
 (defun setup-color-theme-sanityinc-tomorrow ()
   (color-theme-sanityinc-tomorrow-night))
 
 ;; (install-pkg 'color-theme-sanityinc-tomorrow)
+
+;; (install-pkg 'cyberpunk-theme)
+
+(defun setup-colorsarenice-theme ()
+  (add-to-list 'custom-theme-load-path
+               (el-get-package-directory 'colorsarenice-theme))
+  (load-theme 'colorsarenice-dark t))
+
+;; (install-pkg 'colorsarenice-theme)
 
 (defun setup-smart-mode-line ()
   (setq sml/theme 'respectful)

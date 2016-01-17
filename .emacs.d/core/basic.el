@@ -120,6 +120,9 @@
 (install-pkg 'dash)
 (install-pkg 'help-mode+)
 
+(transient-mark-mode t)
+(setq x-select-enable-clipboard t)
+
 	;;; describe this point lisp only
 (defun describe-foo-at-point ()
   "Show the documentation of the Elisp function and variable near point.

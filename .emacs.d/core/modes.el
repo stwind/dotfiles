@@ -8,7 +8,6 @@
   (global-unset-key (kbd "C-x c"))
 
   (global-set-key (kbd "M-x") 'helm-M-x)
-  (setq helm-M-x-fuzzy-match t)
 
   (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action
   (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
@@ -17,10 +16,15 @@
   (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
   (global-set-key (kbd "C-x b") 'helm-mini)
-  (setq helm-buffers-fuzzy-matching t
-        helm-recentf-fuzzy-match    t)
-
+  (global-set-key (kbd "C-x C-b") 'helm-mini)
   (global-set-key (kbd "C-x C-f") 'helm-find-files)
+
+  (setq helm-buffers-fuzzy-matching           t
+        helm-recentf-fuzzy-match              t
+        helm-M-x-fuzzy-match                  t
+        helm-scroll-amount                    8
+        helm-autoresize-mode                  t
+        helm-ff-file-name-history-use-recentf t)
 
   (helm-mode 1))
 
@@ -160,6 +164,7 @@
   (highlight-symbol-nav-mode)
   (add-hook 'prog-mode-hook (lambda () (highlight-symbol-mode)))
   (add-hook 'org-mode-hook (lambda () (highlight-symbol-mode)))
+  (add-hook 'js3-mode-hook (lambda () (highlight-symbol-mode)))
 
   (setq highlight-symbol-idle-delay 0.2
         highlight-symbol-on-navigation-p t)
@@ -179,7 +184,7 @@
 
 (install-pkg 'expand-region)
 
-(defun ome-rainbow-delimiters-setup ()
+(defun setup-rainbow-delimiters ()
   (rainbow-delimiters-mode))
 
 (install-pkg 'rainbow-delimiters)
@@ -232,7 +237,8 @@
     (setq web-mode-enable-auto-pairing nil))
 
   (add-hook 'web-mode-hook 'my-web-mode-hook)
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)))
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.j2?\\'" . web-mode)))
 
 (install-pkg 'web-mode)
 
