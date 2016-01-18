@@ -18,25 +18,28 @@
   (global-set-key (kbd "C-x b") 'helm-mini)
   (global-set-key (kbd "C-x C-b") 'helm-mini)
   (global-set-key (kbd "C-x C-f") 'helm-find-files)
+  (global-set-key (kbd "C-c h x") 'helm-register)
+  (global-set-key (kbd "C-c h M-:") 'helm-eval-expression-with-eldoc)
 
   (setq helm-buffers-fuzzy-matching           t
         helm-recentf-fuzzy-match              t
         helm-M-x-fuzzy-match                  t
         helm-scroll-amount                    8
         helm-autoresize-mode                  t
-        helm-ff-file-name-history-use-recentf t)
+        helm-ff-file-name-history-use-recentf t
+        projectile-switch-project-action      'helm-projectile)
 
   (helm-mode 1))
 
 (install-pkg 'helm)
 
-(install-pkg 'helm-ag)
+;; (install-pkg 'helm-ag)
 
 (defun setup-helm-projectile ()
   (projectile-global-mode)
-  (setq projectile-completion-system 'helm)
   (helm-projectile-on)
-  (setq projectile-switch-project-action 'helm-projectile))
+  (setq projectile-switch-project-action 'helm-projectile
+        projectile-completion-system 'helm))
 
 (install-pkg 'helm-projectile)
 
@@ -90,7 +93,7 @@
 
 (defun setup-ace-window ()
   (setq aw-background nil)
-  (global-set-key (kbd "M-[") 'ace-window)
+  (global-set-key (kbd "M-m") 'ace-window)
   (ace-window-display-mode)
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
@@ -261,8 +264,48 @@
 
 (defun setup-smartparens ()
   (require 'smartparens-config)
-  (setq sp-autoskip-closing-pair 'always)
-  (setq sp-navigate-close-if-unbalanced t)
+  (bind-keys
+   :map smartparens-mode-map
+   ("C-M-a" . sp-beginning-of-sexp)
+   ("C-M-e" . sp-end-of-sexp)
+
+   ("C-M-<down>" . sp-down-sexp)
+   ("C-M-<up>"   . sp-up-sexp)
+   ("M-<down>" . sp-backward-down-sexp)
+   ("M-<up>"   . sp-backward-up-sexp)
+
+   ("C-M-f" . sp-forward-sexp)
+   ("C-M-b" . sp-backward-sexp)
+
+   ("C-M-n" . sp-next-sexp)
+   ("C-M-p" . sp-previous-sexp)
+
+   ("C-S-f" . sp-forward-symbol)
+   ("C-S-b" . sp-backward-symbol)
+
+   ("C-M-<right>" . sp-forward-slurp-sexp)
+   ("M-<left>" . sp-forward-barf-sexp)
+   ("C-M-<left>"  . sp-backward-slurp-sexp)
+   ("M-<right>"  . sp-backward-barf-sexp)
+
+   ("C-M-t" . sp-transpose-sexp)
+   ("C-M-k" . sp-kill-sexp)
+   ("C-k"   . sp-kill-hybrid-sexp)
+   ("M-k"   . sp-backward-kill-sexp)
+   ("C-M-w" . sp-copy-sexp)
+
+   ("C-M-d" . delete-sexp)
+
+   ("M-<backspace>" . backward-kill-word)
+   ("C-<backspace>" . sp-backward-kill-word)
+   ([remap sp-backward-kill-word] . backward-kill-word)
+
+   ("M-[" . sp-backward-unwrap-sexp)
+   ("M-]" . sp-unwrap-sexp)
+
+   ("C-x C-t" . sp-transpose-hybrid-sexp))
+  (setq sp-autoskip-closing-pair 'always
+        sp-navigate-close-if-unbalanced t)
   (smartparens-global-mode t))
 
 (install-pkg 'smartparens)
