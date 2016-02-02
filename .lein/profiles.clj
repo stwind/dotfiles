@@ -1,5 +1,4 @@
-{:user {:dependencies [[fipp "0.6.3"]
-                       ;; [spyscope "0.1.5"]
+{:user {:dependencies [;; [spyscope "0.1.5"]
                        [org.clojure/java.classpath "0.2.2"]
                        [org.clojure/tools.namespace "0.2.11"]
                        [org.clojure/tools.nrepl "0.2.12"]
@@ -20,8 +19,7 @@
                       clojure.core >
                       [clojure.java.shell sh])]
         :plugins  [[venantius/ultra  "0.4.0"]
-                   [lein-pprint "1.1.2"]
-                   [lein-ancient "0.6.7"]
+                   [lein-ancient "0.6.8"]
                    [lein-bikeshed "0.2.0"]
                    [refactor-nrepl "2.0.0-SNAPSHOT"]
                    [cider/cider-nrepl "0.11.0-SNAPSHOT"]]

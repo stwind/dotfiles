@@ -60,7 +60,7 @@
                (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
                (94 . ".\\(?:=\\)")
                (123 . ".\\(?:-\\)")
-               (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
+               ;; (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
                (126 . ".\\(?:[=@~-]\\)")
                )
              ))
@@ -87,7 +87,14 @@
 (defun setup-monokai-theme ()
   (load-theme 'monokai t))
 
-(install-pkg 'monokai-theme)
+;; (install-pkg 'monokai-theme)
+
+(defun setup-material-theme ()
+  (add-to-list 'custom-theme-load-path
+               (el-get-package-directory 'material-theme))
+  (load-theme 'material t))
+
+(install-pkg 'material-theme)
 
 (defun setup-color-theme-almost-monokai ()
   (color-theme-almost-monokai))

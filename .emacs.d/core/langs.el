@@ -86,7 +86,7 @@
   (add-hook 'after-init-hook '(lambda () (require 'edts-start))))
 
 (install-pkg 'erlang-mode)
-;; (install-pkg 'edts 'elpa)
+(install-pkg 'edts 'elpa)
 
 (defun setup-js2-mode ()
   (setq js2-basic-offset 2)
@@ -136,3 +136,24 @@
   (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0"))
 
 (install-pkg 'ox-reveal)
+
+(install-pkg 'ess 'elpa)
+
+(defun setup-elpy ()
+  (elpy-enable)
+  (setq elpy-rpc-backend "jedi")
+  (when (executable-find "ipython")
+    (elpy-use-ipython))
+  (setq elpy-modules '(elpy-module-sane-defaults
+                       elpy-module-company
+                       elpy-module-eldoc
+                       elpy-module-highlight-indentation
+                       elpy-module-pyvenv
+                       elpy-module-yasnippet)))
+
+(install-pkg 'elpy)
+
+(defun setup-ansible-doc ()
+  (add-hook 'yaml-mode-hook #'ansible-doc-mode))
+
+(install-pkg 'ansible-doc)

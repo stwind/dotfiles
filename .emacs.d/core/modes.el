@@ -33,7 +33,7 @@
 
 (install-pkg 'helm)
 
-;; (install-pkg 'helm-ag)
+;; (install-pkg 'helm-ag 'elpa)
 
 (defun setup-helm-projectile ()
   (projectile-global-mode)
@@ -168,6 +168,7 @@
   (add-hook 'prog-mode-hook (lambda () (highlight-symbol-mode)))
   (add-hook 'org-mode-hook (lambda () (highlight-symbol-mode)))
   (add-hook 'js3-mode-hook (lambda () (highlight-symbol-mode)))
+  (add-hook 'erlang-mode-hook (lambda () (highlight-symbol-mode)))
 
   (setq highlight-symbol-idle-delay 0.2
         highlight-symbol-on-navigation-p t)
@@ -266,19 +267,19 @@
   (require 'smartparens-config)
   (bind-keys
    :map smartparens-mode-map
-   ("C-M-a" . sp-beginning-of-sexp)
-   ("C-M-e" . sp-end-of-sexp)
+   ("M-a" . sp-beginning-of-sexp)
+   ("M-e" . sp-end-of-sexp)
 
-   ("C-M-<down>" . sp-down-sexp)
-   ("C-M-<up>"   . sp-up-sexp)
-   ("M-<down>" . sp-backward-down-sexp)
-   ("M-<up>"   . sp-backward-up-sexp)
+   ("C-M-e" . sp-down-sexp)
+   ("C-M-a"   . sp-backward-up-sexp)
+   ;; ("M-e" . sp-backward-down-sexp)
+   ;; ("M-a"   . sp-up-sexp)
 
-   ("C-M-f" . sp-forward-sexp)
+   ;; ("C-M-f" . sp-forward-sexp)
+   ;; ("C-M-b" . sp-previous-sexp)
+
+   ("C-M-f" . sp-next-sexp)
    ("C-M-b" . sp-backward-sexp)
-
-   ("C-M-n" . sp-next-sexp)
-   ("C-M-p" . sp-previous-sexp)
 
    ("C-S-f" . sp-forward-symbol)
    ("C-S-b" . sp-backward-symbol)
