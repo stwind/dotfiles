@@ -6,6 +6,8 @@ fi
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin:/opt/local/bin
 export PATH=$HOME/.tmuxifier/bin:$PATH
 export PATH=$HOME/gocode/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 export SCALA_HOME=$HOME/.svm/current/rt
 export PATH=$SCALA_HOME/bin:$PATH
@@ -13,16 +15,15 @@ export PATH=$SCALA_HOME/bin:$PATH
 export PYTHONPATH=/Library/Python/2.7/site-packages:/usr/local/Cellar/py2cairo/1.10.0/lib/python2.7/site-packages:$PYTHONPATH
 
 
-# export LC_CTYPE="en_GB.UTF-8"
-# export LANG=en_US.UTF-8
-# export LC_ALL=en_US.UTF-8
+export LC_CTYPE="en_GB.UTF-8"
+export LANG="en_GB.UTF-8"
+# export LC_ALL=C
 
 alias ll="ls -Gahlp"
 
 alias pbc="tr -d '\n' | pbcopy"
 
 alias v="vim"
-alias m="mvim"
 
 alias uuid='python -c "import uuid;print str(uuid.uuid4())" | tr -d "\n"'
 
@@ -31,7 +32,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='0;33'
-export CLICOLOR=1 
+export CLICOLOR=1
 
 export EDITOR="vim"
 
@@ -54,20 +55,18 @@ function mux {
 
 disable r
 
-function genpasswd() { 
+function genpasswd() {
     pwgen -Bcyns $1 1 | pbc ; echo Has been copied to clipboard
 }
 
-function cl() {
-    cd $1 && ll
-}
-
 source $(which virtualenvwrapper.sh)
-source $(brew --prefix)/lib/erlang/activate
+# source $(brew --prefix)/lib/erlang/activate
 
 export GOPATH=$HOME/gocode
 eval "$(rbenv init -)"
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+export R_HOME=$(Rscript -e "cat(R.home())" --vanilla)
 
 export NVM_DIR="/Users/stwind/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

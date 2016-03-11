@@ -10,3 +10,6 @@ export NODE_PATH=$(npm root -g)
 
 [[ -s "$HOME/.tmuxifier/init.sh" ]] && source "$HOME/.tmuxifier/init.sh"
 eval "$(rbenv init -)"
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
