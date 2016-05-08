@@ -20,7 +20,8 @@
                       [clojure.java.shell sh])]
         :plugins  [[venantius/ultra  "0.4.1"]
                    [lein-ancient "0.6.8"]
+                   [lein-hiera "0.9.5"]
                    [lein-bikeshed "0.2.0"]
-                   [refactor-nrepl "2.2.0"]
-                   [cider/cider-nrepl "0.11.0"]]
+                   [refactor-nrepl "2.2.0-SNAPSHOT"]
+                   [cider/cider-nrepl "0.12.0-SNAPSHOT"]]
         :ultra  {:color-scheme :solarized_dark}}}

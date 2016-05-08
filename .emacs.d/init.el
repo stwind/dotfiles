@@ -133,4 +133,4 @@
 (load-module 'basic)
 (load-module 'gui)
 (load-module 'modes)
-(load-module 'langs)
+;;(load-module 'langs)

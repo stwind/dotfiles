@@ -41,7 +41,7 @@
   (setq projectile-switch-project-action 'helm-projectile
         projectile-completion-system 'helm))
 
-(install-pkg 'helm-projectile)
+;;(install-pkg 'helm-projectile)
 
 (defun setup-helm-swoop ()
   (use-package helm-swoop)
@@ -84,12 +84,12 @@
   ;; Face name is `helm-swoop-line-number-face`
   (setq helm-swoop-use-line-number-face t))
 
-(install-pkg 'helm-swoop)
+;;(install-pkg 'helm-swoop)
 
 (defun setup-evil-nerd-commenter ()
   (evilnc-default-hotkeys))
 
-(install-pkg 'evil-nerd-commenter 'elpa)
+;;(install-pkg 'evil-nerd-commenter 'elpa)
 
 (defun setup-ace-window ()
   (setq aw-background nil)
@@ -97,7 +97,7 @@
   (ace-window-display-mode)
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
-(install-pkg 'ace-window)
+;;(install-pkg 'ace-window)
 
 (defun setup-git-gutter ()
   (use-package git-gutter)
@@ -124,7 +124,7 @@
   (set-face-background 'git-gutter:added nil)
   (set-face-background 'git-gutter:deleted nil))
 
-(install-pkg 'git-gutter)
+;;(install-pkg 'git-gutter)
 
 (defun setup-anzu ()
   (global-anzu-mode +1)
@@ -136,13 +136,13 @@
   (setq anzu-search-threshold 1000)
   (setq anzu-replace-to-string-separator " => "))
 
-(install-pkg 'anzu)
+;;(install-pkg 'anzu)
 
 (defun setup-indent-guide ()
   (indent-guide-global-mode)
   (set-face-foreground 'indent-guide-face "gray"))
 
-(install-pkg 'indent-guide)
+;;(install-pkg 'indent-guide)
 
 (defun setup-aggresive-indent ()
   (global-aggressive-indent-mode 1)
@@ -153,7 +153,7 @@
 (defun setup-whitespace-cleanup-mode ()
   (setq global-whitespace-cleanup-mode t))
 
-(install-pkg 'whitespace-cleanup-mode)
+;;(install-pkg 'whitespace-cleanup-mode)
 
 (defun setup-clean-aindent-mode ()
   (electric-indent-mode -1)  ; no electric indent, auto-indent is sufficient
@@ -254,14 +254,14 @@
 (defun setup-yasnippet ()
   (yas-global-mode 1))
 
-(install-pkg 'yasnippet)
+;;(install-pkg 'yasnippet)
 
 (defun setup-yasnippet-snippets ()
   (add-to-list 'yas-snippet-dirs
                (el-get-package-directory "yasnippet-snippets"))
   (yas-reload-all))
 
-(install-pkg 'yasnippet-snippets)
+;;(install-pkg 'yasnippet-snippets)
 
 (defun setup-smartparens ()
   (require 'smartparens-config)
@@ -309,15 +309,15 @@
         sp-navigate-close-if-unbalanced t)
   (smartparens-global-mode t))
 
-(install-pkg 'smartparens)
+;;(install-pkg 'smartparens)
 
-(install-pkg 'git-modes)
+;;(install-pkg 'git-modes)
 
 (defun setup-flycheck ()
   (add-hook 'prog-mode-hook 'flycheck-mode)
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
-(install-pkg 'flycheck 'elpa)
+;;(install-pkg 'flycheck 'elpa)
 
 (defun setup-flycheck-pos-tip ()
   (with-eval-after-load 'flycheck (flycheck-pos-tip-mode)))

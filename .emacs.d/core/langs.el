@@ -12,7 +12,17 @@
     (DELETE 2)
     (HEAD 2)
     (ANY 2)
-    (context 2)))
+    (context 2)
+    (implement '(1 (1)))
+    ;;(letfn     '(1 ((:defn)) nil))
+;;    (proxy     '(2 nil nil (1)))
+   ;; (reify     '(:defn (1)))
+    ;;(deftype   '(2 nil nil (1)))
+    ;;(defrecord '(2 nil nil (1)))
+    ;;(defprotocol '(2 nil nil (1)))
+;;    (specify   '(1 (1)))
+  ;;  (specify   '(1 (1)))
+  ))
 
 (install-pkg 'clojure-mode)
 
