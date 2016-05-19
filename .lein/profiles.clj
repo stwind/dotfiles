@@ -1,8 +1,8 @@
 {:user {:dependencies [;; [spyscope "0.1.5"]
-                       [org.clojure/java.classpath "0.2.2"]
+                       [org.clojure/java.classpath "0.2.3"]
                        [org.clojure/tools.namespace "0.2.11"]
                        [org.clojure/tools.nrepl "0.2.12"]
-                       [im.chit/vinyasa "0.4.2"]
+                       [im.chit/vinyasa "0.4.3"]
                        #_[acyclic/squiggly-clojure "0.1.4"]]
         :injections [;; (require 'spyscope.core)
                      (require '[clojure.java.classpath :as cp])
@@ -19,9 +19,9 @@
                       clojure.core >
                       [clojure.java.shell sh])]
         :plugins  [[venantius/ultra  "0.4.1"]
-                   [lein-ancient "0.6.8"]
+                   [lein-ancient "0.6.10"]
                    [lein-hiera "0.9.5"]
-                   [lein-bikeshed "0.2.0"]
-                   [refactor-nrepl "2.2.0-SNAPSHOT"]
-                   [cider/cider-nrepl "0.12.0-SNAPSHOT"]]
+                   [lein-bikeshed "0.3.0"]
+                   [refactor-nrepl "2.3.0-SNAPSHOT"]
+                   [cider/cider-nrepl "0.13.0-SNAPSHOT"]]
         :ultra  {:color-scheme :solarized_dark}}}
