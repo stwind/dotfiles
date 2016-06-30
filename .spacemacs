@@ -39,6 +39,7 @@ values."
      clojure
      erlang
      javascript
+     (c-c++ :variables c-c++-enable-clang-support t)
      (version-control :variables
                       version-control-diff-tool 'git-gutter)
      system
@@ -260,6 +261,8 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  (setq tramp-ssh-controlmaster-options
+        "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   )
 
 (defun dotspacemacs/user-config ()
