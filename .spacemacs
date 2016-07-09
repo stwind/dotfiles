@@ -284,6 +284,28 @@ you should place you code here."
   (setq vc-follow-symlinks t)
 
   (global-set-key (kbd "C-;") 'avy-goto-word-1)
+
+  (bind-keys
+   :map smartparens-mode-map
+   ("C-M-a" . sp-beginning-of-sexp)
+   ("C-M-e" . sp-end-of-sexp)
+
+   ("C-M-f" . sp-forward-sexp)
+   ("C-M-b" . sp-previous-sexp)
+   ("C-M-n" . sp-next-sexp)
+   ("C-M-p" . sp-backward-sexp)
+
+   ("C-M-t" . sp-transpose-sexp)
+   ("C-M-k" . sp-kill-sexp)
+   ("M-k"   . sp-kill-hybrid-sexp)
+   ;; ("M-k"   . sp-backward-kill-sexp)
+   ("C-M-w" . sp-copy-sexp)
+
+   ("M-[" . sp-backward-unwrap-sexp)
+   ("M-]" . sp-unwrap-sexp)
+
+   ("M-n" . sp-down-sexp)
+   ("M-p"   . sp-backward-up-sexp))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
