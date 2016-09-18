@@ -3,21 +3,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin:/opt/local/bin
-export PATH=$HOME/.tmuxifier/bin:$PATH
-export PATH=$HOME/gocode/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 export SCALA_HOME=$HOME/.svm/current/rt
-export PATH=$SCALA_HOME/bin:$PATH
 
 export PYTHONPATH=/Library/Python/2.7/site-packages:/usr/local/Cellar/py2cairo/1.10.0/lib/python2.7/site-packages:$PYTHONPATH
-
-
-export LC_CTYPE="en_GB.UTF-8"
-export LANG="en_GB.UTF-8"
-# export LC_ALL=C
 
 alias ll="ls -Gahlp"
 
@@ -47,10 +36,6 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-function mux {
-    tmux new "tmuxifier s $1"
-}
-
 . `brew --prefix`/etc/profile.d/z.sh
 
 disable r
@@ -60,14 +45,11 @@ function genpasswd() {
 }
 
 source $(which virtualenvwrapper.sh)
-# source $(brew --prefix)/lib/erlang/activate
 
-export GOPATH=$HOME/gocode
 eval "$(rbenv init -)"
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
-export R_HOME=$(Rscript -e "cat(R.home())" --vanilla)
+export NVM_DIR="$HOME/.nvm"
+. "$(brew --prefix nvm)/nvm.sh"
 
-export NVM_DIR="/Users/stwind/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 . /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

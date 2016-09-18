@@ -72,3 +72,15 @@ if [[ ! -d "$TMPDIR" ]]; then
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
+
+export GOPATH=$HOME/gocode
+
+# export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin:/opt/local/bin
+export PATH=$GOPATH/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$SCALA_HOME/bin:$PATH
+
+export LC_CTYPE="en_GB.UTF-8"
+export LANG="en_GB.UTF-8"
+# export LC_ALL=C

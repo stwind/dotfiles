@@ -48,7 +48,7 @@ values."
      ipython-notebook
      go
      shell-scripts
-     ;; markdown
+     markdown
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -279,6 +279,7 @@ you should place you code here."
   (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
   (setq-default truncate-lines t)
   (setq-default js-indent-level 2)
+  (setq-default js2-basic-offset 2)
   (setq create-lockfiles nil)
   (mac-auto-operator-composition-mode)
   (setq vc-follow-symlinks t)
@@ -291,9 +292,9 @@ you should place you code here."
    ("C-M-e" . sp-end-of-sexp)
 
    ("C-M-f" . sp-forward-sexp)
-   ("C-M-b" . sp-previous-sexp)
+   ("C-M-b" . sp-backward-sexp)
    ("C-M-n" . sp-next-sexp)
-   ("C-M-p" . sp-backward-sexp)
+   ("C-M-p" . sp-previous-sexp)
 
    ("C-M-t" . sp-transpose-sexp)
    ("C-M-k" . sp-kill-sexp)
@@ -310,3 +311,17 @@ you should place you code here."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(cider-cljs-lein-repl
+   "(do (require 'weasel.repl.websocket) (cemerick.piggieback/cljs-repl (weasel.repl.websocket/repl-env :ip \"127.0.0.1\" :port 9001)))"))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
