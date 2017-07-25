@@ -1,20 +1,20 @@
 [color]
-	ui = true
+    ui = true
 [alias]
-	st = status
-	com = commit
-	co = checkout
-	br = branch
-	cl = clone
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    st = status
+    com = commit
+    co = checkout
+    br = branch
+    cl = clone
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 [user]
-	email = stwindfy@gmail.com
-	name = stwind
+    email = stwindfy@gmail.com
+    name = stwind
 [core]
-	editor = /usr/bin/vim
-	excludesfile = /Users/stwind/.gitignore_global
+    editor = /usr/bin/vim
+    excludesfile = /Users/stwind/.gitignore_global
 [github]
-	user = stwind
+    user = stwind
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -22,8 +22,12 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [push]
-	default = matching
+    default = matching
 [filter "lfs"]
-	smudge = git-lfs smudge %f
-	required = true
-	clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true
+    clean = git-lfs clean %f
+[http]
+    proxy = http://127.0.0.1:18016
+[https]
+    proxy = https://127.0.0.1:18016

@@ -2,18 +2,11 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-
-export SCALA_HOME=$HOME/.svm/current/rt
-
-export PYTHONPATH=/Library/Python/2.7/site-packages:/usr/local/Cellar/py2cairo/1.10.0/lib/python2.7/site-packages:$PYTHONPATH
+#export PYTHONPATH=/Library/Python/2.7/site-packages:/usr/local/Cellar/py2cairo/1.10.0/lib/python2.7/site-packages:$PYTHONPATH
 
 alias ll="ls -Gahlp"
-
 alias pbc="tr -d '\n' | pbcopy"
-
 alias v="vim"
-
 alias uuid='python -c "import uuid;print str(uuid.uuid4())" | tr -d "\n"'
 
 export CLICOLOR=1
@@ -42,6 +35,10 @@ disable r
 
 function genpasswd() {
     pwgen -Bcyns $1 1 | pbc ; echo Has been copied to clipboard
+}
+
+function notify() {
+    terminal-notifier -sound Submarine
 }
 
 source $(which virtualenvwrapper.sh)

@@ -84,3 +84,5 @@ export PATH=$SCALA_HOME/bin:$PATH
 export LC_CTYPE="en_GB.UTF-8"
 export LANG="en_GB.UTF-8"
 # export LC_ALL=C
+
+export LIBCLANG_LLVM_CONFIG_EXECUTABLE=`brew --prefix llvm`/bin/llvm-config

@@ -58,7 +58,7 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
-(defun system/init-exec-path-from-shell ()
+(defun system/post-init-exec-path-from-shell ()
   (when (and (memq window-system '(mac ns))
              (require 'exec-path-from-shell nil t))
     ;; (setq exec-path-from-shell-debug t)
