@@ -29,7 +29,7 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-. `brew --prefix`/etc/profile.d/z.sh
+# . `brew --prefix`/etc/profile.d/z.sh
 
 disable r
 
@@ -43,7 +43,7 @@ function notify() {
 
 source $(which virtualenvwrapper.sh)
 
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 export NVM_DIR="$HOME/.nvm"
