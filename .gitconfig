@@ -8,11 +8,11 @@
     cl = clone
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 [user]
-    email = stwindfy@gmail.com
-    name = stwind
+	email = stwindfy@gmail.com
+	name = stwind
 [core]
     editor = /usr/bin/vim
-    excludesfile = /Users/stwind/.gitignore_global
+	excludesfile = /Users/stwind/.gitignore_global
 [github]
     user = stwind
 [difftool "sourcetree"]
@@ -31,3 +31,5 @@
     proxy = http://127.0.0.1:18016
 [https]
     proxy = https://127.0.0.1:18016
+[commit]
+	template = /Users/stwind/.stCommitMsg
