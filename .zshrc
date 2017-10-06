@@ -29,7 +29,7 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-# . `brew --prefix`/etc/profile.d/z.sh
+source `brew --prefix`/etc/profile.d/z.sh
 
 disable r
 
@@ -41,6 +41,8 @@ function notify() {
     terminal-notifier -sound Submarine
 }
 
+
+export VIRTUALENVWRAPPER_PYTHON=$(which python2)
 source $(which virtualenvwrapper.sh)
 
 # eval "$(rbenv init -)"
