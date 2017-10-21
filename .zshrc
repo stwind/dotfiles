@@ -53,5 +53,4 @@ export NVM_DIR="$HOME/.nvm"
 
 . /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export GOPATH=$GOPATH:"$HOME/work/bearychat"
 export PATH="/usr/local/opt/erlang@19/bin:$PATH"

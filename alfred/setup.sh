@@ -1,5 +1,5 @@
 #!/bin/bash
 
 
-pip install --target=. Alfred-Workflow
-pip install --target=lib -r requirements.txt
+pip2 install --target=. Alfred-Workflow
+pip2 install --target=lib -r requirements.txt
