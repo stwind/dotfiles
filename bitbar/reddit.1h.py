@@ -6,7 +6,6 @@
 # <bitbar.author>Parvez</bitbar.author>
 # <bitbar.author.github>parvez</bitbar.author.github>
 # <bitbar.desc>Displays Reddit for Mac</bitbar.desc>
-# <bitbar.image>http://i.imgur.com/zUHPCvq.png</bitbar.image>
 # <bitbar.dependencies>python</bitbar.dependencies>
 # <bitbar.abouturl>https://github.com/parvez/bitbar-plugins</bitbar.abouturl>
 #
@@ -19,39 +18,45 @@ sys.setdefaultencoding('utf8')
 
 import json
 import urllib2
-reddit0 = "https://www.reddit.com"
-reddit1 = [
-  ["Machinelearning", "https://www.reddit.com/r/MachineLearning/", ""],
-  ["procgen", "https://www.reddit.com/r/proceduralgeneration/", ""],
-  ["computergraphics", "https://www.reddit.com/r/computergraphics/", ""],
-  ["erlang", "https://www.reddit.com/r/erlang/", ""],
-  ["clojure", "https://www.reddit.com/r/Clojure/", ""]
-]
+from datetime import datetime
 
-print ("🐈")
+subreddits = ['Machinelearning', 'statistics', 'datascience',
+              'proceduralgeneration', 'computergraphics', 'gamedev', 'webgl', 'opengl',
+              'erlang', 'clojure', 'golang', 'javascript', 'cpp', 'rust',
+              'ableton', 'houdini', 'Cinema4D', 'blender',
+              'BlockChain', 'Bitcoin', 'ethereum',
+              'coding', 'programming']
+
+def get_url(subreddit):
+  return "https://www.reddit.com/r/{}.json".format(subreddit)
+
+
+def fmt_datetime(utc):
+  return datetime.fromtimestamp(int(utc)).strftime('%Y/%m/%d %H:%M')
+
+
+def request(url):
+    request = urllib2.Request(url, headers={
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36",
+        "Pragma": "no-cache"
+    })
+    return urllib2.urlopen(request)
+
+print ("reddit")
 print ("---")
 
-for r1 in reddit1:
-  print (r1[0])
-  request = urllib2.Request(r1[1] + ".json" + r1[2], headers={
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36",
-    "Pragma": "no-cache"
-  })
-  jsonUrl = urllib2.urlopen(request).read()
-  jsonRet = json.loads(jsonUrl)
-  for j in jsonRet['data']['children']:
+for subreddit in subreddits:
+  print(subreddit)
+  req = request(get_url(subreddit))
+  body = json.loads(req.read())
+  for j in body['data']['children']:
     child = j['data']
-    line = child['title']
-    color = ""
-    if child['quarantine'] or child['over_18']:
-      line = "(NSFW) " + line
-      color = " color=#EEEEEE"
-    sr = child['permalink'].split("/")[2].lower()
-    if len(line) > 50:
-      line = line[:50] + '...'
-    line += ' [' + child['domain'] + ']'
-    print ("--" + line + " | href=" + child['url'] + " trim=false size=11" + color)
-    print ("--          " + "Score: " + str(child['score']) + ", Comments: " + str(child['num_comments']) + " | href=" + reddit0 + child['permalink'] + " trim=false size=9" + color)
-    # print ("--          | trim=false size=4")
+    title = child['title'] if len(child['title']) <= 70 else child['title'][:70]
+    line = title + ' [' + child['domain'] + ']'
+    print ("--" + line + " | href=" + child['url'] + " trim=false")
+    href = "https://www.reddit.com" + child['permalink']
+    line2 = "Score: " + str(child['score']) + ", Comments: " + str(child['num_comments']) + " ["  + fmt_datetime(child['created_utc']) + "]"
+    print ("--          " + line2 + " | href=" + href + " trim=false size=10")
+
 print ("---")
 print ("Refresh... | refresh=true")
