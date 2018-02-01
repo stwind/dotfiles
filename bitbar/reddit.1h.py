@@ -22,7 +22,7 @@ from datetime import datetime
 
 subreddits = ['Machinelearning', 'statistics', 'datascience',
               'proceduralgeneration', 'computergraphics', 'gamedev', 'webgl', 'opengl',
-              'erlang', 'clojure', 'golang', 'javascript', 'cpp', 'rust',
+              'erlang', 'clojure', 'golang', 'javascript', 'cpp', 'rust', 'scala',
               'ableton', 'houdini', 'Cinema4D', 'blender',
               'BlockChain', 'Bitcoin', 'ethereum',
               'coding', 'programming']

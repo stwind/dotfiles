@@ -17,7 +17,7 @@ import json
 import urllib2
 from bs4 import BeautifulSoup
 
-langs = ['clojure', 'erlang', 'cpp', 'python', 'javascript', 'go', 'rust']
+langs = ['clojure', 'erlang', 'c', 'cpp', 'python', 'javascript', 'go', 'rust', 'scala', 'mathematica', 'java']
 sinces = ['daily', 'weekly', 'monthly']
 
 def get_url(lang, since):
@@ -48,14 +48,14 @@ if __name__ == '__main__':
     for lang in langs:
         print(lang)
         for since in sinces:
-            print("--" + since)
+            print('--'+since)
             req = request(get_url(lang, since))
             if req.getcode() == 200:
                 soup = BeautifulSoup(req.read(), 'html.parser')
                 for repo in soup.select('ol.repo-list li'):
                     name, url, desc = parse_repo(repo)
                     desc = desc.replace('|', '\\')
-                    print("----[" + name + "] " + desc + " | href=" + url)
+                    print("--[" + name + "] " + desc + " | size=12 href=" + url)
             else:
                 print("--failed")
     print ("---")

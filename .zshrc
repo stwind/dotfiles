@@ -33,14 +33,26 @@ source `brew --prefix`/etc/profile.d/z.sh
 
 disable r
 
-function genpasswd() {
+genpasswd() {
     pwgen -Bcyns $1 1 | pbc ; echo Has been copied to clipboard
 }
 
-function notify() {
+notify() {
     terminal-notifier -sound Submarine
 }
 
+notifyme () {
+    START=$(gdate +%s%3N)
+    CMD="$@"
+    END=$(gdate +%s%3N)
+    eval $CMD
+    if [ $? -ne 0 ];then
+        TITLE="Failed"
+    else
+        TITLE="Success"
+    fi
+    echo "$CMD" | terminal-notifier -sound Submarine -title "$TITLE: $((END-START))ms"
+}
 
 export VIRTUALENVWRAPPER_PYTHON=$(which python2)
 source $(which virtualenvwrapper.sh)
