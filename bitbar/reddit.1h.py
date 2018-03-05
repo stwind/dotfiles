@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env PYTHONIOENCODING=UTF-8 /usr/local/bin/python
 # -*- coding: utf-8 -*-
 #
 # <bitbar.title>Reddit</bitbar.title>
@@ -13,11 +13,9 @@
 
 # encoding=utf8
 import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
 
 import json
-import urllib2
+import urllib.request
 from datetime import datetime
 
 subreddits = ['Machinelearning', 'statistics', 'datascience',
@@ -36,11 +34,11 @@ def fmt_datetime(utc):
 
 
 def request(url):
-    request = urllib2.Request(url, headers={
+    request = urllib.request.Request(url, headers={
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36",
         "Pragma": "no-cache"
     })
-    return urllib2.urlopen(request)
+    return urllib.request.urlopen(request)
 
 print ("reddit")
 print ("---")

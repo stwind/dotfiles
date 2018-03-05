@@ -27,21 +27,21 @@
                    [lein-ns-dep-graph "0.1.0-SNAPSHOT"]
                    [cider/cider-nrepl "0.16.0-SNAPSHOT"]]
         :ultra  {:color-scheme :solarized_dark}
-        :env {:bearychat-nimbus-host "127.0.0.1"
-              :bearychat-nimbus-port "9999"
-              :bearychat-db-subname "//127.0.0.1:3306/snitch"
-              :bearychat-db-usename "snitch"
-              :bearychat-db-pwd "snitch"
-              :bearychat-redis-host "127.0.0.1"
-              :bearychat-redis-cache-host "127.0.0.1"
-              :bearychat-rabbitmq-host "127.0.0.1"
-              :bearychat-eventlog-port 9998}}
- :test {:env {:bearychat-nimbus-host "127.0.0.1"
-              :bearychat-nimbus-port "9999"
-              :bearychat-db-subname "//127.0.0.1:3306/snitch"
-              :bearychat-db-usename "snitch"
-              :bearychat-db-pwd "snitch"
-              :bearychat-redis-host "127.0.0.1"
-              :bearychat-redis-cache-host "127.0.0.1"
-              :bearychat-rabbitmq-host "127.0.0.1"
-              :bearychat-eventlog-port 9998}}}
+        :env {:snitch-nimbus-host "127.0.0.1"
+              :snitch-nimbus-port "9999"
+              :snitch-db-subname "//127.0.0.1:3306/snitch"
+              :snitch-db-usename "snitch"
+              :snitch-db-pwd "snitch"
+              :snitch-redis-host "127.0.0.1"
+              :snitch-redis-cache-host "127.0.0.1"
+              :snitch-rabbitmq-host "127.0.0.1"
+              :snitch-eventlog-port 9998}}
+ :test {:env {:snitch-nimbus-host "127.0.0.1"
+              :snitch-nimbus-port "9999"
+              :snitch-db-subname "//127.0.0.1:3306/snitch"
+              :snitch-db-usename "snitch"
+              :snitch-db-pwd "snitch"
+              :snitch-redis-host "127.0.0.1"
+              :snitch-redis-cache-host "127.0.0.1"
+              :snitch-rabbitmq-host "127.0.0.1"
+              :snitch-eventlog-port 9998}}}

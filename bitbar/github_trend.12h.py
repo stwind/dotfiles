@@ -1,4 +1,4 @@
-#!/usr/local/bin/python2
+#!/usr/bin/env PYTHONIOENCODING=UTF-8 /usr/local/bin/python
 # -*- coding: utf-8 -*-
 #
 # <bitbar.title>Github trend</bitbar.title>
@@ -10,11 +10,9 @@
 
 # encoding=utf8
 import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
 
 import json
-import urllib2
+import urllib.request
 from bs4 import BeautifulSoup
 
 langs = ['clojure', 'erlang', 'c', 'cpp', 'python', 'javascript', 'go', 'rust', 'scala', 'mathematica', 'java']
@@ -25,11 +23,11 @@ def get_url(lang, since):
 
 
 def request(url):
-    request = urllib2.Request(url, headers={
+    request = urllib.request.Request(url, headers={
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36",
         "Pragma": "no-cache"
     })
-    return urllib2.urlopen(request)
+    return urllib.request.urlopen(request)
 
 
 def parse_repo(repo):
