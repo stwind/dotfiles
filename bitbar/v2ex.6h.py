@@ -16,7 +16,7 @@ import urllib.request
 from bs4 import BeautifulSoup
 
 
-nodes = ['jobs','programmer']
+nodes = ['jobs','programmer', 'qna']
 
 def get_url(node, page):
     return "https://www.v2ex.com/go/{}?p={}".format(node, page)

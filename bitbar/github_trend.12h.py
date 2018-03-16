@@ -11,11 +11,11 @@
 # encoding=utf8
 import sys
 
-import json
 import urllib.request
 from bs4 import BeautifulSoup
 
-langs = ['clojure', 'erlang', 'c', 'cpp', 'python', 'javascript', 'go', 'rust', 'scala', 'mathematica', 'java']
+langs = ['clojure', 'erlang', 'c', 'cpp', 'python', 'javascript', 'typescript',
+         'go', 'rust', 'scala', 'mathematica', 'java']
 sinces = ['daily', 'weekly', 'monthly']
 
 def get_url(lang, since):
