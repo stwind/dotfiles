@@ -1,4 +1,4 @@
-#!/usr/bin/env PYTHONIOENCODING=UTF-8 /usr/local/bin/python
+#!/usr/bin/env PYTHONIOENCODING=UTF-8 /usr/local/bin/python3
 # -*- coding: utf-8 -*-
 #
 # <bitbar.title>Github trend</bitbar.title>
@@ -40,6 +40,8 @@ def parse_cell(cell):
 if __name__ == '__main__':
     print ("v2ex")
     print ("---")
+    print ("Refresh... | refresh=true")
+    print ("---")
     for node in nodes:
         print(node)
         for page in range(1, 3+1):
@@ -51,5 +53,3 @@ if __name__ == '__main__':
                     print("--" + title + "| size=12 href=" + url)
             else:
                 print("--failed")
-    print ("---")
-    print ("Refresh... | refresh=true")

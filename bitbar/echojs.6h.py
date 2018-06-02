@@ -1,4 +1,4 @@
-#!/usr/bin/env PYTHONIOENCODING=UTF-8 /usr/local/bin/python
+#!/usr/bin/env PYTHONIOENCODING=UTF-8 /usr/local/bin/python3
 # -*- coding: utf-8 -*-
 #
 # <bitbar.title>echojs</bitbar.title>
@@ -35,11 +35,18 @@ def parse_link(a):
 
 
 if __name__ == '__main__':
-    print ("echojs")
-    print ("---")
+    print("echojs")
+    print("---")
+    print("Refresh... | refresh=true")
+    print("---")
+    print("top")
     soup = make_soup("http://www.echojs.com/")
     for a in soup.select('section#newslist article h2 a'):
         title, url = parse_link(a)
-        print(title + " | size=12 href=" + url)
-    print ("---")
-    print ("Refresh... | refresh=true")
+        print("--" + title + " | size=12 href=" + url)
+    print("new")
+    for p in [x * 30 for x in range(0, 2)]:
+        soup = make_soup("http://www.echojs.com/latest/{}".format(p))
+        for a in soup.select('section#newslist article h2 a'):
+            title, url = parse_link(a)
+            print("--" + title + " | size=12 href=" + url)

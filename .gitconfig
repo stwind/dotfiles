@@ -30,6 +30,6 @@
 [commit]
     template = /Users/stwind/.stCommitMsg
 [http]
-	proxy = http://127.0.0.1:1235
+	proxy = http://127.0.0.1:8016
 [https]
-	proxy = https://127.0.0.1:1235
+	proxy = https://127.0.0.1:8016

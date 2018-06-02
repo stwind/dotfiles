@@ -1,4 +1,4 @@
-#!/usr/bin/env PYTHONIOENCODING=UTF-8 /usr/local/bin/python
+#!/usr/bin/env PYTHONIOENCODING=UTF-8 /usr/local/bin/python3
 # -*- coding: utf-8 -*-
 #
 # <bitbar.title>Reddit</bitbar.title>
@@ -20,13 +20,13 @@ from datetime import datetime
 
 subreddits = ['Machinelearning', 'statistics', 'datascience',
               'proceduralgeneration', 'computergraphics', 'gamedev', 'webgl', 'opengl',
-              'erlang', 'clojure', 'golang', 'javascript', 'cpp', 'rust', 'scala',
+              'erlang', 'clojure', 'golang', 'javascript', 'typescript', 'cpp', 'rust', 'scala',
               'ableton', 'houdini', 'Cinema4D', 'blender',
               'BlockChain', 'Bitcoin', 'ethereum',
               'coding', 'programming']
 
 def get_url(subreddit):
-  return "https://www.reddit.com/r/{}.json".format(subreddit)
+  return "https://www.reddit.com/r/{}.json?limit=50".format(subreddit)
 
 
 def fmt_datetime(utc):
@@ -42,6 +42,8 @@ def request(url):
 
 print ("reddit")
 print ("---")
+print ("Refresh... | refresh=true")
+print ("---")
 
 for subreddit in subreddits:
   print(subreddit)
@@ -55,6 +57,3 @@ for subreddit in subreddits:
     href = "https://www.reddit.com" + child['permalink']
     line2 = "Score: " + str(child['score']) + ", Comments: " + str(child['num_comments']) + " ["  + fmt_datetime(child['created_utc']) + "]"
     print ("--          " + line2 + " | href=" + href + " trim=false size=10")
-
-print ("---")
-print ("Refresh... | refresh=true")

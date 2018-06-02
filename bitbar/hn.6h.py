@@ -1,4 +1,4 @@
-#!/usr/bin/env PYTHONIOENCODING=UTF-8 /usr/local/bin/python
+#!/usr/bin/env PYTHONIOENCODING=UTF-8 /usr/local/bin/python3
 # -*- coding: utf-8 -*-
 #
 # <bitbar.title>Hackernews</bitbar.title>
@@ -36,24 +36,29 @@ def parse_thing(thing):
     tid = thing.get('id')
     link = thing.find('a',class_='storylink')
     href = link.get('href')
+    if not href.startswith('http'):
+        href = "https://news.ycombinator.com/{}".format(href)
     title = link.get_text()
     return title, href, tid, comment_link.get_text().strip()
+
+
+def print_results(soup):
+    for thing in soup.select('.athing'):
+            title, href, tid, desc = parse_thing(thing)
+            print("--" + title + " | href=" + href + " trim=false")
+            print("--          " + desc.replace("|","") + " | href=" + comment_link(tid) + " trim=false size=10")
 
 
 if __name__ == '__main__':
     print("hn")
     print("---")
-    print("new")
-    soup = make_soup("https://news.ycombinator.com/")
-    for thing in soup.select('.athing'):
-        title, href, tid, desc = parse_thing(thing)
-        print("--" + title + " | href=" + href + " trim=false")
-        print("--          " + desc.replace("|","") + " | href=" + comment_link(tid) + " trim=false size=10")
-    print("best")
-    soup = make_soup("https://news.ycombinator.com/best")
-    for thing in soup.select('.athing'):
-        title, href, tid, desc = parse_thing(thing)
-        print("--" + title + " | href=" + href + " trim=false")
-        print("--          " + desc.replace("|","") + " | href=" + comment_link(tid) + " trim=false size=10")
-    print("---")
     print("Refresh... | refresh=true")
+    print("---")
+    print("new")
+    for p in range(1, 3):
+        soup = make_soup("https://news.ycombinator.com/news?p={}".format(p))
+        print_results(soup)
+    print("best")
+    for p in range(1, 3):
+        soup = make_soup("https://news.ycombinator.com/best?p={}".format(p))
+        print_results(soup)

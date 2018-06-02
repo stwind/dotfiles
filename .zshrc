@@ -54,7 +54,7 @@ notifyme () {
     echo "$CMD" | terminal-notifier -sound Submarine -title "$TITLE: $((END-START))ms"
 }
 
-export VIRTUALENVWRAPPER_PYTHON=$(which python)
+# export VIRTUALENVWRAPPER_PYTHON=$(which python)
 source $(which virtualenvwrapper.sh)
 
 # eval "$(rbenv init -)"
@@ -67,3 +67,5 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="/usr/local/opt/erlang@19/bin:$PATH"
 # export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
+
+export PATH=/Users/stwind/.local/bin:$PATH
