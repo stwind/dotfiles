@@ -8,6 +8,9 @@ alias ll="ls -Gahlp"
 alias pbc="tr -d '\n' | pbcopy"
 alias v="vim"
 alias uuid='python -c "import uuid;print str(uuid.uuid4())" | tr -d "\n"'
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+alias bu='brew upgrade --ignore-pinned --cleanup'
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
@@ -15,6 +18,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='0;33'
 export CLICOLOR=1
+export HOMEBREW_UPGRADE_CLEANUP=1
 
 export EDITOR="vim"
 
@@ -65,7 +69,8 @@ export NVM_DIR="$HOME/.nvm"
 
 . /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export PATH="/usr/local/opt/erlang@19/bin:$PATH"
-# export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
-
 export PATH=/Users/stwind/.local/bin:$PATH
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

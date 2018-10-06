@@ -17,11 +17,6 @@ import urllib.request
 from bs4 import BeautifulSoup
 
 
-tags = ['python', 'javascript', 'typescript',
-        'scala', 'GLSL', 'ディープラーニング', 'tensorflow', '機械学習',
-        'machinelearning', 'deeplearning', 'webgl', 'cg', 'erlang', 'rust']
-
-
 def request(url):
     request = urllib.request.Request(url, headers={
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36",
@@ -52,11 +47,12 @@ def print_tag(tag, cate):
 
 
 if __name__ == '__main__':
-    print("qiita")
+    print("903")
     print("---")
     print("Refresh... | refresh=true")
     print("---")
-    for tag in tags:
-        print(tag)
-        print_tag(tag, 'items')
-        # print_tag(tag, 'likes')
+    soup = make_soup('http://www.my903hk.tk')
+    for post in soup.select('.post'):
+        title = post.select_one('.entry-title a').get_text()
+        url = post.select_one('.wp-audio-shortcode a')['href']
+        print(title + '| size=12 href=' + url)

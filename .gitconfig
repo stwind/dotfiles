@@ -7,9 +7,6 @@
     br = branch
     cl = clone
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-[user]
-	email = stwindfy@gmail.com
-	name = stwind
 [core]
     editor = /usr/bin/vim
 	excludesfile = /Users/stwind/.gitignore_global
@@ -33,3 +30,5 @@
 	proxy = http://127.0.0.1:8016
 [https]
 	proxy = https://127.0.0.1:8016
+[user]
+	email = stwindfy@gmail.com

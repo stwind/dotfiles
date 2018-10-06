@@ -20,7 +20,7 @@ langs = sorted(['clojure', 'erlang', 'c', 'cpp', 'python', 'javascript', 'typesc
 sinces = ['daily', 'weekly', 'monthly']
 
 topics = sorted(['3d', '3d-graphics', 'graphics', 'webgl', 'webgl2', 'opengl', 'vulkan', 'shaders', 'computer-graphics', 'cad',
-                 'glsl', 'gpu', 'math', 'creative-coding',
+                 'glsl', 'gpu', 'math', 'creative-coding', 'computational-geometry',
                  'algorithm', 'graph', 'dataset', 'machine-learning', 'deep-learning', 'neural-network',
                  'streaming', 'data',
                  'actor-model', 'actors', 'distributed-systems', 'reactive', 'clustering', 'csp', 'concurrency',
@@ -28,11 +28,12 @@ topics = sorted(['3d', '3d-graphics', 'graphics', 'webgl', 'webgl2', 'opengl', '
                  'webaudio', 'audio', 'sound', 'video', 'music', 'electron',
                  'security', 'security-tools', 'docker', 'kubernetes', 'devops', 'functional',
                  'fbp', 'dataflow', 'workflow', 'bpmn', 'bpm', 'database',
-                 'statistics', 'quant', 'finance', 'trading', 'analytics',
+                 'statistics', 'quant', 'finance', 'trading', 'analytics', 'time-series',
                  'visualization', 'data-visualization', 'ui', 'gui', 'awesome', 'specification',
                  'semantic-web', 'rdf', 'ontology', 'semantic',
-                 'command-line', 'cli', 'interactive',
+                 'command-line', 'cli', 'interactive', 'geospatial', 'gis', 'proxy',
                  'sketch-plugin', 'sketch'])
+
 
 def get_trend_url(lang, since):
     return "https://github.com/trending/{}?since={}".format(lang, since)
@@ -101,7 +102,7 @@ if __name__ == '__main__':
         print("--" + topic)
         soup = make_soup(get_topic_url(topic))
         if soup:
-            for article in soup.select('#js-pjax-container article'):
+            for article in soup.select('.topic article'):
                 name, url, desc = parse_topic(article)
                 print("----[" + name + "] " + desc + " | size=12 href=" + url)
         else:
