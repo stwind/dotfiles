@@ -59,6 +59,6 @@ if __name__ == '__main__':
             print(title + '| size=12 href=' + url['href'])
         else:
             ml = post.select_one('.more-link')
-            mlsp = make_soup(ml['href'])
+            mlsp = make_soup(ml['href'].split('#')[0])
             url = mlsp.select_one('.wp-audio-shortcode a')
             print(title + '| size=12 href=' + url['href'])
