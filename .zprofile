@@ -17,7 +17,7 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
+export EDITOR='vim'
 export VISUAL='nano'
 export PAGER='less'
 
@@ -43,8 +43,8 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  /usr/local/{bin,sbin}
-  $path
+    /usr/local/{bin,sbin}
+    $path
 )
 
 #
@@ -71,18 +71,33 @@ if [[ ! -d "$TMPDIR" ]]; then
   mkdir -p -m 700 "$TMPDIR"
 fi
 
-TMPPREFIX="${TMPDIR%/}/zsh"
+export TMPPREFIX="${TMPDIR%/}/zsh"
 
 export GOPATH=$HOME/gocode
 
-# export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin:/opt/local/bin
 export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export PATH=$SCALA_HOME/bin:$PATH
+export PATH=$PATH:$(brew --prefix go)/libexec/bin
 
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
 export LC_CTYPE="en_GB.UTF-8"
 export LANG="en_GB.UTF-8"
 # export LC_ALL=C
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig
+export LIBCLANG_LLVM_CONFIG_EXECUTABLE=$(brew --prefix llvm)/bin/llvm-config
+export LIBRARY_PATH=$LIBRARY_PATH:$(brew --prefix openssl)/lib/
 
-export LIBCLANG_LLVM_CONFIG_EXECUTABLE=`brew --prefix llvm`/bin/llvm-config
+# # For colourful man pages (CLUG-Wiki style)
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+export TERM=xterm-color
+export GREP_OPTIONS='--color=auto' GREP_COLOR='0;33'
+export CLICOLOR=1
+export HOMEBREW_UPGRADE_CLEANUP=1

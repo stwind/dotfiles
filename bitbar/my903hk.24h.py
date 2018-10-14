@@ -53,12 +53,9 @@ if __name__ == '__main__':
     print("---")
     soup = make_soup('http://www.my903hk.tk')
     for post in soup.select('.post'):
-        title = post.select_one('.entry-title a').get_text()
-        url = post.select_one('.wp-audio-shortcode a')
+        title_a = post.select_one('.entry-title a')
+        title = title_a.get_text()
+        mlsp = make_soup(title_a['href'])
+        url = mlsp.select_one('.wp-audio-shortcode a')
         if url:
-            print(title + '| size=12 href=' + url['href'])
-        else:
-            ml = post.select_one('.more-link')
-            mlsp = make_soup(ml['href'].split('#')[0])
-            url = mlsp.select_one('.wp-audio-shortcode a')
             print(title + '| size=12 href=' + url['href'])
