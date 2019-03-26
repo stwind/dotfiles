@@ -12,11 +12,13 @@
 # by Parvez
 
 # encoding=utf8
+
 import sys
 
 import json
-import urllib.request
+from urllib.request import ProxyHandler, build_opener, Request
 from datetime import datetime
+
 
 subreddits = ['Machinelearning', 'statistics', 'datascience',
               'proceduralgeneration', 'computergraphics', 'gamedev', 'webgl', 'opengl',
@@ -25,35 +27,47 @@ subreddits = ['Machinelearning', 'statistics', 'datascience',
               'BlockChain', 'Bitcoin', 'ethereum',
               'coding', 'programming']
 
+
+def get_opener():
+    proxy = '127.0.0.1:1235'
+    proxy_handler = ProxyHandler({
+        'http': 'http://' + proxy,
+        'https': 'https://' + proxy
+    })
+    return build_opener(proxy_handler)
+
+
 def get_url(subreddit):
-  return "https://www.reddit.com/r/{}.json?limit=50".format(subreddit)
+    return "https://www.reddit.com/r/{}.json?limit=50".format(subreddit)
 
 
 def fmt_datetime(utc):
-  return datetime.fromtimestamp(int(utc)).strftime('%Y/%m/%d %H:%M')
+    return datetime.fromtimestamp(int(utc)).strftime('%Y/%m/%d %H:%M')
 
 
-def request(url):
-    request = urllib.request.Request(url, headers={
+def request(opener, url):
+    req = Request(url, headers={
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36",
         "Pragma": "no-cache"
     })
-    return urllib.request.urlopen(request)
+    return opener.open(req)
 
-print ("reddit")
-print ("---")
-print ("Refresh... | refresh=true")
-print ("---")
 
-for subreddit in subreddits:
-  print(subreddit)
-  req = request(get_url(subreddit))
-  body = json.loads(req.read())
-  for j in body['data']['children']:
-    child = j['data']
-    title = child['title'] if len(child['title']) <= 70 else child['title'][:70]
-    line = title + ' [' + child['domain'] + ']'
-    print ("--" + line + " | href=" + child['url'] + " trim=false")
-    href = "https://www.reddit.com" + child['permalink']
-    line2 = "Score: " + str(child['score']) + ", Comments: " + str(child['num_comments']) + " ["  + fmt_datetime(child['created_utc']) + "]"
-    print ("--          " + line2 + " | href=" + href + " trim=false size=10")
+if __name__ == '__main__':
+    print ("reddit")
+    print ("---")
+    print ("Refresh... | refresh=true")
+    print ("---")
+    opener = get_opener()
+    for subreddit in subreddits:
+        print(subreddit)
+        req = request(opener, get_url(subreddit))
+        body = json.loads(req.read())
+        for j in body['data']['children']:
+            child = j['data']
+            title = child['title'] if len(child['title']) <= 70 else child['title'][:70]
+            line = title + ' [' + child['domain'] + ']'
+            print ("--" + line + " | href=" + child['url'] + " trim=false")
+            href = "https://www.reddit.com" + child['permalink']
+            line2 = "Score: " + str(child['score']) + ", Comments: " + str(child['num_comments']) + " ["  + fmt_datetime(child['created_utc']) + "]"
+            print ("--          " + line2 + " | href=" + href + " trim=false size=10")

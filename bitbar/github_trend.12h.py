@@ -20,7 +20,9 @@ langs = sorted(['clojure', 'erlang', 'c', 'cpp', 'python', 'javascript', 'typesc
 sinces = ['daily', 'weekly', 'monthly']
 
 topics = sorted(['3d', '3d-graphics', 'graphics', 'webgl', 'webgl2', 'opengl', 'vulkan', 'shaders', 'computer-graphics', 'cad',
-                 'glsl', 'gpu', 'math', 'creative-coding', 'computational-geometry',
+                 'glsl', 'gpu', 'math', 'creative-coding', 'computational-geometry', 'csg', 'geometry', 'shaders',
+                 'computer-vision',
+                 'procedural', 'procedural-generation', 'generative', 'generative-art', 'gpgpu',
                  'algorithm', 'graph', 'dataset', 'machine-learning', 'deep-learning', 'neural-network',
                  'streaming', 'data',
                  'actor-model', 'actors', 'distributed-systems', 'reactive', 'clustering', 'csp', 'concurrency',
@@ -30,7 +32,7 @@ topics = sorted(['3d', '3d-graphics', 'graphics', 'webgl', 'webgl2', 'opengl', '
                  'fbp', 'dataflow', 'workflow', 'bpmn', 'bpm', 'database',
                  'statistics', 'quant', 'finance', 'trading', 'analytics', 'time-series',
                  'visualization', 'data-visualization', 'ui', 'gui', 'awesome', 'specification',
-                 'semantic-web', 'rdf', 'ontology', 'semantic',
+                 'semantic-web', 'rdf', 'ontology', 'semantic', 'serverless',
                  'command-line', 'cli', 'interactive', 'geospatial', 'gis', 'proxy',
                  'sketch-plugin', 'sketch'])
 

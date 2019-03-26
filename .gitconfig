@@ -14,7 +14,7 @@
     user = stwind
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -25,10 +25,11 @@
     required = true
     clean = git-lfs clean %f
 [commit]
-    template = /Users/stwind/.stCommitMsg
+	template = /Users/stwind/.stCommitMsg
 # [http]
 # 	proxy = http://127.0.0.1:8016
 # [https]
 # 	proxy = https://127.0.0.1:8016
 [user]
 	email = stwindfy@gmail.com
+	name = stwind

@@ -45,3 +45,10 @@ source "$(brew --prefix nvm)/nvm.sh"
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/stwind/lib/js/serverless-mono-example/packages/sls-random/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/stwind/lib/js/serverless-mono-example/packages/sls-random/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/stwind/lib/js/serverless-mono-example/packages/sls-random/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/stwind/lib/js/serverless-mono-example/packages/sls-random/node_modules/tabtab/.completions/sls.zsh

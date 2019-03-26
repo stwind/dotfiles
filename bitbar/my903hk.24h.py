@@ -32,30 +32,17 @@ def make_soup(url):
         return None
 
 
-def parse_item(item):
-    title = item.get_text()
-    href = item['href']
-    return title, 'https://qiita.com{}'.format(href)
-
-
-def print_tag(tag, cate):
-    for i in range(1, 4):
-        soup = make_soup('https://qiita.com/tags/{}/{}?page={}'.format(urllib.parse.quote(tag), cate, i))
-        for item in soup.select('.tsf-ArticleBody_title'):
-            title, href = parse_item(item)
-            print('--{} | size=12 href={}'.format(title, href))
-
-
 if __name__ == '__main__':
     print("903")
     print("---")
     print("Refresh... | refresh=true")
     print("---")
-    soup = make_soup('http://www.my903hk.tk')
-    for post in soup.select('.post'):
-        title_a = post.select_one('.entry-title a')
-        title = title_a.get_text()
-        mlsp = make_soup(title_a['href'])
-        url = mlsp.select_one('.wp-audio-shortcode a')
-        if url:
-            print(title + '| size=12 href=' + url['href'])
+    for i in range(1, 2):
+        soup = make_soup('http://www.my903hk.tk/page/{}'.format(i))
+        for post in soup.select('.post'):
+            title_a = post.select_one('.entry-title a')
+            title = title_a.get_text()
+            mlsp = make_soup(title_a['href'])
+            url = mlsp.select_one('.wp-audio-shortcode a')
+            if url:
+                print(title + '| size=12 href=' + url['href'])

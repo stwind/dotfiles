@@ -44,7 +44,7 @@ if __name__ == '__main__':
     print ("---")
     for node in nodes:
         print(node)
-        for page in range(1, 3+1):
+        for page in range(1, 4):
             req = request(get_url(node, page))
             if req.getcode() == 200:
                 soup = BeautifulSoup(req.read(), 'html.parser')

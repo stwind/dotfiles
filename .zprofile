@@ -100,4 +100,4 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='0;33'
 export CLICOLOR=1
-export HOMEBREW_UPGRADE_CLEANUP=1
+export HOMEBREW_INSTALL_CLEANUP=1
