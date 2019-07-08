@@ -26,10 +26,10 @@
     clean = git-lfs clean %f
 [commit]
 	template = /Users/stwind/.stCommitMsg
-# [http]
-# 	proxy = http://127.0.0.1:8016
-# [https]
-# 	proxy = https://127.0.0.1:8016
+[http]
+	proxy = http://127.0.0.1:1235
+[https]
+	proxy = https://127.0.0.1:1235
 [user]
 	email = stwindfy@gmail.com
 	name = stwind

@@ -37,6 +37,12 @@ notifyme () {
     echo "$CMD" | terminal-notifier -sound Submarine -title "$TITLE: $((END-START))ms"
 }
 
+pngopt () {
+    pngquant -f $1 -o $1
+    optipng -o7 $1
+    zopflipng -ym $1 $1
+}
+
 export VIRTUALENVWRAPPER_PYTHON=$(which python)
 source $(which virtualenvwrapper.sh)
 

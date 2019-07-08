@@ -61,9 +61,9 @@ def make_soup(url):
 
 
 def parse_trend(repo):
-    h3 = repo.find('h3')
-    name = h3.get_text().strip()
-    href = h3.find('a')['href']
+    h1 = repo.find('h1')
+    name = h1.get_text().strip()
+    href = h1.find('a')['href']
     url = "https://github.com{}".format(href)
     p = repo.find('p')
     desc = p.get_text().strip().replace('|', '\\') if p else ''
@@ -72,9 +72,9 @@ def parse_trend(repo):
 
 def parse_topic(article):
     divs = article.find_all('div')
-    h3 = divs[0].find('h3')
-    name = h3.get_text().strip()
-    href = h3.find('a')['href']
+    h3a = divs[0].select_one('h3 a')
+    name = h3a.get_text().strip()
+    href = h3a['href']
     url = "https://github.com{}".format(href)
     desc = divs[1].get_text().strip().replace('|', '\\')
     return name, url, desc
@@ -93,7 +93,7 @@ if __name__ == '__main__':
             print('----' + since)
             soup = make_soup(get_trend_url(lang, since))
             if soup:
-                for repo in soup.select('ol.repo-list li'):
+                for repo in soup.select('.Box-row'):
                     name, url, desc = parse_trend(repo)
                     print("----[" + name + "] " + desc + " | size=12 href=" + url)
             else:
@@ -104,7 +104,7 @@ if __name__ == '__main__':
         print("--" + topic)
         soup = make_soup(get_topic_url(topic))
         if soup:
-            for article in soup.select('.topic article'):
+            for article in soup.select('article.border-bottom.border-gray-light.py-4'):
                 name, url, desc = parse_topic(article)
                 print("----[" + name + "] " + desc + " | size=12 href=" + url)
         else:
