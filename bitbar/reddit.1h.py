@@ -24,7 +24,6 @@ subreddits = ['Machinelearning', 'statistics', 'datascience',
               'proceduralgeneration', 'generative', 'computergraphics', 'gamedev', 'webgl', 'opengl',
               'erlang', 'clojure', 'golang', 'javascript', 'typescript', 'cpp', 'rust', 'scala',
               'ableton', 'houdini', 'Cinema4D', 'blender',
-              'BlockChain', 'Bitcoin', 'ethereum',
               'coding', 'programming', 'cscareerquestions']
 
 

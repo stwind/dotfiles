@@ -11,16 +11,25 @@
 # encoding=utf8
 import sys
 
-import urllib.request
+# import urllib.request
+from urllib.request import build_opener, ProxyHandler, Request
 from bs4 import BeautifulSoup
 
 
+PROXY = '127.0.0.1:1235'
+
+opener = build_opener(ProxyHandler({
+    'http': 'http://' + PROXY,
+    'https': 'https://' + PROXY
+}))
+
+
 def request(url):
-    request = urllib.request.Request(url, headers={
+    request = Request(url, headers={
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36",
         "Pragma": "no-cache"
     })
-    return urllib.request.urlopen(request)
+    return opener.open(request)
 
 
 def make_soup(url):
@@ -44,9 +53,9 @@ def parse_thing(thing):
 
 def print_results(soup):
     for thing in soup.select('.athing'):
-            title, href, tid, desc = parse_thing(thing)
-            print("--" + title + " | href=" + href + " trim=false")
-            print("--          " + desc.replace("|","") + " | href=" + comment_link(tid) + " trim=false size=10")
+        title, href, tid, desc = parse_thing(thing)
+        print("--" + title + " | href=" + href + " trim=false")
+        print("--          " + desc.replace("|","") + " | href=" + comment_link(tid) + " trim=false size=10")
 
 
 if __name__ == '__main__':
@@ -54,11 +63,8 @@ if __name__ == '__main__':
     print("---")
     print("Refresh... | refresh=true")
     print("---")
-    print("new")
-    for p in range(1, 3):
-        soup = make_soup("https://news.ycombinator.com/news?p={}".format(p))
-        print_results(soup)
-    print("best")
-    for p in range(1, 3):
-        soup = make_soup("https://news.ycombinator.com/best?p={}".format(p))
-        print_results(soup)
+    for cate in ['news', 'best']:
+        print(cate)
+        for p in range(1, 3):
+            soup = make_soup("https://news.ycombinator.com/{}?p={}".format(cate, p))
+            print_results(soup)

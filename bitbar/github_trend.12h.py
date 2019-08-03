@@ -14,7 +14,7 @@ import sys
 import urllib.request
 from bs4 import BeautifulSoup
 
-langs = sorted(['clojure', 'erlang', 'c', 'cpp', 'python', 'javascript', 'typescript', 'css',
+langs = sorted(['clojure', 'erlang', 'c', 'c++', 'python', 'javascript', 'typescript', 'css',
                 'go', 'rust', 'WebAssembly', 'scala', 'haskell', 'ocaml', 'shell',
                 'swift', 'max', 'glsl', 'mathematica', 'java'])
 sinces = ['daily', 'weekly', 'monthly']

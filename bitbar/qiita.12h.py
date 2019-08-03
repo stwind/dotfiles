@@ -19,11 +19,9 @@ from urllib.request import ProxyHandler, build_opener, Request
 from bs4 import BeautifulSoup
 
 
-tags = sorted(['python', 'javascript', 'typescript',
+tags = sorted(['python', 'javascript', 'typescript', "cpp", "c", "webassembly",'houdini','touchdesigner',
                'scala', 'GLSL', 'ディープラーニング', 'tensorflow', 'pytorch', '機械学習', '深層学習','3D','opencv',
                'machinelearning', 'deeplearning', 'webgl', 'cg', 'erlang', 'rust'])
-
-tags = ["python", "glsl"]
 
 QUERY = """
 query getTagArticles($urlName: String!, $page: Int!, $per: Int!) {
