@@ -1,4 +1,4 @@
-#!/usr/bin/env PYTHONIOENCODING=UTF-8 /usr/local/bin/python3
+#!/usr/local/bin/python3
 # -*- coding: utf-8 -*-
 #
 # <bitbar.title>Reddit</bitbar.title>
@@ -23,7 +23,7 @@ from datetime import datetime
 subreddits = ['Machinelearning', 'statistics', 'datascience',
               'proceduralgeneration', 'generative', 'computergraphics', 'gamedev', 'webgl', 'opengl',
               'erlang', 'clojure', 'golang', 'javascript', 'typescript', 'cpp', 'rust', 'scala',
-              'ableton', 'houdini', 'Cinema4D', 'blender',
+              'ableton', 'houdini', 'Cinema4D', 'blender', 'MediaSynthesis',
               'coding', 'programming', 'cscareerquestions']
 
 

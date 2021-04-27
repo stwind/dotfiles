@@ -1,4 +1,4 @@
-#!/usr/bin/env PYTHONIOENCODING=UTF-8 /usr/local/bin/python3
+#!/usr/local/bin/python3
 # -*- coding: utf-8 -*-
 #
 # <bitbar.title>Github trend</bitbar.title>
@@ -15,7 +15,7 @@ import urllib.request
 from bs4 import BeautifulSoup
 
 langs = sorted(['clojure', 'erlang', 'c', 'c++', 'python', 'javascript', 'typescript', 'css',
-                'go', 'rust', 'WebAssembly', 'scala', 'haskell', 'ocaml', 'shell',
+                'go', 'rust', 'WebAssembly', 'scala', 'haskell', 'ocaml', 'shell', 'jupyter-notebook',
                 'swift', 'max', 'glsl', 'mathematica', 'java'])
 sinces = ['daily', 'weekly', 'monthly']
 
@@ -38,7 +38,7 @@ topics = sorted(['3d', '3d-graphics', 'graphics', 'webgl', 'webgl2', 'opengl', '
 
 
 def get_trend_url(lang, since):
-    return "https://github.com/trending/{}?since={}".format(lang, since)
+    return "https://github.com/trending/{}?since={}&spoken_language_code=en".format(lang, since)
 
 
 def get_topic_url(topic):
@@ -80,6 +80,11 @@ def parse_topic(article):
     return name, url, desc
 
 
+def print_entry(name, url, desc):
+    name = " ".join(name.replace('\n', '').split())
+    print("----[{}] {} | size=12 href={}".format(name, desc, url))
+
+
 if __name__ == '__main__':
     print("gt")
     print("---")
@@ -95,17 +100,17 @@ if __name__ == '__main__':
             if soup:
                 for repo in soup.select('.Box-row'):
                     name, url, desc = parse_trend(repo)
-                    print("----[" + name + "] " + desc + " | size=12 href=" + url)
+                    print_entry(name, url, desc)
             else:
                 print("----failed")
 
-    print("topics")
-    for topic in topics:
-        print("--" + topic)
-        soup = make_soup(get_topic_url(topic))
-        if soup:
-            for article in soup.select('article.border-bottom.border-gray-light.py-4'):
-                name, url, desc = parse_topic(article)
-                print("----[" + name + "] " + desc + " | size=12 href=" + url)
-        else:
-            print("----failed")
+    # print("topics")
+    # for topic in topics:
+    #     print("--" + topic)
+    #     soup = make_soup(get_topic_url(topic))
+    #     if soup:
+    #         for article in soup.select('article.border-bottom.border-gray-light.py-4'):
+    #             name, url, desc = parse_topic(article)
+    #             print_entry(name, url, desc)
+    #     else:
+    #         print("----failed")

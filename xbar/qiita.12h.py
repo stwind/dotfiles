@@ -1,4 +1,4 @@
-#!/usr/bin/env PYTHONIOENCODING=UTF-8 /usr/local/bin/python3
+#!/usr/local/bin/python3
 # -*- coding: utf-8 -*-
 #
 # <bitbar.title>Qiita</bitbar.title>
@@ -13,6 +13,7 @@
 import sys
 import codecs
 import json
+import time
 import urllib.parse
 import urllib.request
 from urllib.request import ProxyHandler, build_opener, Request
@@ -21,6 +22,8 @@ from bs4 import BeautifulSoup
 
 tags = sorted(['python', 'javascript', 'typescript', "cpp", "c", "webassembly",'houdini','touchdesigner',
                'scala', 'GLSL', 'ディープラーニング', 'tensorflow', 'pytorch', '機械学習', '深層学習','3D','opencv',
+               '競技プログラミング', 'vscode','openframeworks', 'データ分析', 'numpy', 'statistics', "kubernetes",
+               "docker", 'terraform', 'java',
                'machinelearning', 'deeplearning', 'webgl', 'cg', 'erlang', 'rust'])
 
 QUERY = """
@@ -77,7 +80,7 @@ def request(url, tag,  data):
 
 
 def run_query(tag):
-    data = {'query': QUERY, "variables":{"urlName":urllib.parse.quote(tag).lower(),"page":1,"per":80}}
+    data = {'query': QUERY, "variables":{"urlName":urllib.parse.quote(tag).lower(),"page":1,"per":200}}
     resp = request("https://qiita.com/graphql", tag, data)
     reader = codecs.getreader("utf-8")
     return json.load(reader(resp))
@@ -85,6 +88,7 @@ def run_query(tag):
 
 def print_tag(tag):
     data = run_query(tag)
+    print(data)
     for item in data['data']['tag']['articles']['items']:
         href = "https://qiita.com/{}/items/{}".format(item["author"]["urlName"],item["uuid"])
         print('--{} | size=12 href={}'.format(item["title"], href))
@@ -98,3 +102,4 @@ if __name__ == '__main__':
     for tag in tags:
         print(tag)
         print_tag(tag)
+        time.sleep(15)

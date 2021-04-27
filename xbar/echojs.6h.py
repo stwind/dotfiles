@@ -1,4 +1,4 @@
-#!/usr/bin/env PYTHONIOENCODING=UTF-8 /usr/local/bin/python3
+#!/usr/local/bin/python3
 # -*- coding: utf-8 -*-
 #
 # <bitbar.title>echojs</bitbar.title>

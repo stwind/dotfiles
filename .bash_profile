@@ -12,3 +12,6 @@ export NODE_PATH=$(npm root -g)
 export LC_CTYPE="en_GB.UTF-8"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+export CFLAGS="-I/usr/local/Cellar/openssl/1.0.2s/include"
+export LDFLAGS="-L/usr/local/Cellar/openssl/1.0.2s/lib"

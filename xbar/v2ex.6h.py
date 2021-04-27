@@ -1,4 +1,4 @@
-#!/usr/bin/env PYTHONIOENCODING=UTF-8 /usr/local/bin/python3
+#!/usr/local/bin/python3
 # -*- coding: utf-8 -*-
 #
 # <bitbar.title>Github trend</bitbar.title>
@@ -16,7 +16,7 @@ import urllib.request
 from bs4 import BeautifulSoup
 
 
-nodes = ['jobs','programmer', 'qna']
+nodes = ['jobs','programmer', 'qna', 'career','share', 'create']
 
 def get_url(node, page):
     return "https://www.v2ex.com/go/{}?p={}".format(node, page)
