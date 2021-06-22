@@ -25,6 +25,7 @@ subreddits = ['Machinelearning', 'statistics', 'datascience',
               'erlang', 'clojure', 'golang', 'javascript', 'typescript', 'cpp', 'rust', 'scala',
               'ableton', 'houdini', 'Cinema4D', 'blender', 'MediaSynthesis',
               'coding', 'programming', 'cscareerquestions']
+subreddits = ['Machinelearning', 'proceduralgeneration', 'MediaSynthesis', 'cscareerquestions', 'investing']
 
 
 def get_opener():
@@ -64,9 +65,9 @@ if __name__ == '__main__':
         body = json.loads(req.read())
         for j in body['data']['children']:
             child = j['data']
-            title = child['title'] if len(child['title']) <= 70 else child['title'][:70]
+            title = (child['title'] if len(child['title']) <= 70 else child['title'][:70]).replace('|', ' ')
             line = title + ' [' + child['domain'] + ']'
-            print ("--" + line + " | href=" + child['url'] + " trim=false")
+            print("--" + line + " | href=" + child['url'] + " trim=false")
             href = "https://www.reddit.com" + child['permalink']
             line2 = "Score: " + str(child['score']) + ", Comments: " + str(child['num_comments']) + " ["  + fmt_datetime(child['created_utc']) + "]"
-            print ("--          " + line2 + " | href=" + href + " trim=false size=10")
+            print("--          " + line2 + " | href=" + href + " trim=false size=10")
