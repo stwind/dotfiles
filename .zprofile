@@ -73,10 +73,11 @@ fi
 
 export TMPPREFIX="${TMPDIR%/}/zsh"
 
-export GOPATH=$HOME/gocode
+export PATH=/opt/homebrew/bin:$PATH
 
-export PATH=$GOPATH/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
+export GOPATH=$HOME/gocode
+#export PATH=$GOPATH/bin:$PATH
+#export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:$(brew --prefix go)/libexec/bin
 
 export CLICOLOR=1
@@ -101,3 +102,7 @@ export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='0;33'
 export CLICOLOR=1
 export HOMEBREW_INSTALL_CLEANUP=1
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
